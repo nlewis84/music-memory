@@ -47,13 +47,13 @@ render() {
               {item.majorWork 
                 ? 
                 <div>
-                    <h1 style={{color: 'lightyellow'}}>{item.majorWork}</h1>
-                    <h2 style={{color: 'white'}}>{item.selection}</h2>
+                    <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
+                    <h3 style={{color: 'white'}}>{item.selection}</h3>
                   </div>
                 :
-                <h1 style={{color: 'lightyellow'}}>{item.selection}</h1>
+                <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
               }
-              <h2 style={{color: 'firebrick'}}>{item.composer}</h2>
+              <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
               </div>
           })}
         </div>
@@ -79,13 +79,13 @@ render() {
               {item.majorWork 
                 ? 
                   <div>
-                    <h1 style={{color: 'lightyellow'}}>{item.majorWork}</h1>
-                    <h2 style={{color: 'white'}}>{item.selection}</h2>
+                    <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
+                    <h3 style={{color: 'white'}}>{item.selection}</h3>
                   </div>
                 :
-                  <h1 style={{color: 'lightyellow'}}>{item.selection}</h1>
+                  <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
               }
-              <h2 style={{color: 'firebrick'}}>{item.composer}</h2>
+              <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
             </div>
           })}
         </div>
