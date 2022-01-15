@@ -65,7 +65,7 @@ render() {
       <>
         <div className="header"></div>
         <div id="overlay" className="overlay absolute">
-          <img src={item[0].url} alt='cat gif' />
+          <img className="image" src={item[0].url} alt='cat gif' />
           <h1 id="reply" className="child">placeholder</h1>
         </div>
         {styledYouTube(currentPiece.youtube)}

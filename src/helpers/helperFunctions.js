@@ -20,9 +20,10 @@ import YouTube from 'react-youtube';
     {selection: 'Fanfare for the Common Man', composer: 'Copland', youtube: '9dljTJ9qJ4U'}
   ]
   
-  function overlay() {
+  function overlay(boolean) {
     let reply = document.getElementById('reply');
     reply.innerHTML = guess;
+    boolean ? reply.style.color = 'green' : reply.style.color = 'red';
     let overlaySelector = document.getElementById("overlay");
     overlaySelector.style.display = 'flex';
   }
@@ -35,24 +36,24 @@ import YouTube from 'react-youtube';
   function correctPiece(e, item) {
     if (item !== currentPiece) {
       guess = `Oh no! This was actually ${currentPiece.composer}'s ${currentPiece?.majorWork || ''} ${currentPiece.selection}`
-      overlay(); 
+      overlay(false); 
     
       return setTimeout(function() {
         guess = ''
         window.location.reload(true)
-      }, 3000);
+      }, 5000);
     }
-    guess = `GREAT JOB JACKSON!!!`
-    overlay();
+    guess = `GREAT JOB!!!`
+    overlay(true);
   
     return setTimeout(function() {
       guess = ''
       window.location.reload(true)
-    }, 3000);
+    }, 5000);
   }
   
   function styledYouTube(id) {
-    let array = [30, 150, 20, 200, 70, 90, 100]
+    let array = [30, 150, 20, 175, 70, 90, 100]
     let randomTime = Math.floor(Math.random() * 8);  
     const opts = {
       height: '20',

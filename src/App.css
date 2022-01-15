@@ -75,16 +75,22 @@
   width:100%;
   height:100%;
   z-index:1000;
-  background-color: #ffffffee;
+  background-color: #000000ee;
 }
 
 .absolute {
-    display: none;
-    min-height: 100vh;
+  display: none;
+  min-height: 100vh;
+}
+
+.image {
+  margin: auto;
+  width: 45%;
+  border-radius: 20px;
 }
 
 .child {
-    margin: auto;
-    width: 45%;
-    text-align: center;
+  margin: auto;
+  width: 45%;
+  text-align: center;
 }
