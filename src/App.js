@@ -38,7 +38,7 @@ render() {
   return (
     <>
         <div className="center">
-            <h1 style={{textAlign: 'center'}}>Jackson's</h1>
+            <h1 style={{textAlign: 'center'}}>Texas UIL 3rd Grade</h1>
             <h2 style={{textAlign: 'center'}}>Music Memory Game</h2>
         </div>
         <div className="cards">
@@ -70,7 +70,7 @@ render() {
         </div>
         {styledYouTube(currentPiece.youtube)}
         <div className="center">
-          <h1 style={{textAlign: 'center'}}>Jackson's</h1>
+          <h1 style={{textAlign: 'center'}}>Texas UIL 3rd Grade</h1>
           <h2 style={{textAlign: 'center'}}>Music Memory Game</h2>
         </div>
         <div className="cards">
