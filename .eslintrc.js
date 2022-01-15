@@ -1,18 +1,19 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
+  extends: ["plugin:react/recommended", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 13,
-    sourceType: 'module'
+    sourceType: "module",
   },
-  plugins: ['react'],
+  plugins: ["prettier"],
   rules: {
-    'react/react-in-jsx-scope': 'off'
-  }
+    "react/react-in-jsx-scope": "off",
+  },
 };

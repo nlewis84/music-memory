@@ -1,11 +1,11 @@
-import './App.css';
-import React from 'react';
+import "./App.css";
+import React from "react";
 import {
   MUSIC_MEMORY_PIECES,
   currentPiece,
   correctPiece,
-  styledYouTube
-} from './helpers/helperFunctions';
+  styledYouTube,
+} from "./helpers/helperFunctions";
 
 class App extends React.Component {
   // Constructor
@@ -14,23 +14,27 @@ class App extends React.Component {
 
     this.state = {
       item: [],
-      DataisLoaded: false
+      DataisLoaded: false,
     };
   }
 
   componentDidMount() {
     // eslint-disable-next-line no-undef
-    fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif&?size=small&?limit=1', {
-      method: 'GET',
-      headers: {
-        'x-api-key': process.env.REACT_APP_CAT_API_KEY
+    fetch(
+      "https://api.thecatapi.com/v1/images/search?mime_types=gif&?size=small&?limit=1",
+      {
+        method: "GET",
+        headers: {
+          // eslint-disable-next-line no-undef
+          "x-api-key": process.env.REACT_APP_CAT_API_KEY,
+        },
       }
-    })
+    )
       .then((res) => res.json())
       .then((json) => {
         this.setState({
           item: json,
-          DataisLoaded: true
+          DataisLoaded: true,
         });
       });
   }
@@ -42,8 +46,8 @@ class App extends React.Component {
       return (
         <>
           <div className="center">
-            <h1 style={{ textAlign: 'center' }}>Jackson's</h1>
-            <h2 style={{ textAlign: 'center' }}>Music Memory Game</h2>
+            <h1 style={{ textAlign: "center" }}>Texas UIL 3rd Grade</h1>
+            <h2 style={{ textAlign: "center" }}>Music Memory Game</h2>
           </div>
 
           <div className="cards">
@@ -52,13 +56,13 @@ class App extends React.Component {
                 <div className="card" key={i}>
                   {item.majorWork ? (
                     <div>
-                      <h1 style={{ color: 'lightyellow' }}>{item.majorWork}</h1>
-                      <h2 style={{ color: 'white' }}>{item.selection}</h2>
+                      <h1 style={{ color: "lightyellow" }}>{item.majorWork}</h1>
+                      <h2 style={{ color: "white" }}>{item.selection}</h2>
                     </div>
                   ) : (
-                    <h1 style={{ color: 'lightyellow' }}>{item.selection}</h1>
+                    <h1 style={{ color: "lightyellow" }}>{item.selection}</h1>
                   )}
-                  <h2 style={{ color: 'firebrick' }}>{item.composer}</h2>
+                  <h2 style={{ color: "firebrick" }}>{item.composer}</h2>
                 </div>
               );
             })}
@@ -80,23 +84,27 @@ class App extends React.Component {
         {styledYouTube(currentPiece.youtube)}
 
         <div className="center">
-          <h1 style={{ textAlign: 'center' }}>Jackson's</h1>
-          <h2 style={{ textAlign: 'center' }}>Music Memory Game</h2>
+          <h1 style={{ textAlign: "center" }}>Texas UIL 3rd Grade</h1>
+          <h2 style={{ textAlign: "center" }}>Music Memory Game</h2>
         </div>
 
         <div className="cards">
           {MUSIC_MEMORY_PIECES.map((item, i) => {
             return (
-              <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
+              <div
+                className="card"
+                key={i}
+                onClick={(e) => correctPiece(e, item)}
+              >
                 {item.majorWork ? (
                   <div>
-                    <h1 style={{ color: 'lightyellow' }}>{item.majorWork}</h1>
-                    <h2 style={{ color: 'white' }}>{item.selection}</h2>
+                    <h1 style={{ color: "lightyellow" }}>{item.majorWork}</h1>
+                    <h2 style={{ color: "white" }}>{item.selection}</h2>
                   </div>
                 ) : (
-                  <h1 style={{ color: 'lightyellow' }}>{item.selection}</h1>
+                  <h1 style={{ color: "lightyellow" }}>{item.selection}</h1>
                 )}
-                <h2 style={{ color: 'firebrick' }}>{item.composer}</h2>
+                <h2 style={{ color: "firebrick" }}>{item.composer}</h2>
               </div>
             );
           })}
