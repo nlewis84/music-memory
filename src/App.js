@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import { Container, Typography } from '@mui/material';
+import { Box, Card, CardContent, Container, Grid, Paper, Skeleton, Stack, Typography } from '@mui/material';
 import { currentPiece, correctPiece } from './helpers/helperFunctions';
 import MUSIC_MEMORY_PIECES from './helpers/musicSetup';
 import styledYouTube from './helpers/styledYouTube';
@@ -39,56 +39,86 @@ render() {
   const { DataisLoaded, item } = this.state;
   if (!DataisLoaded || !currentPiece?.youtube)
   return (
-    <Container sx={{ p: 5 }}>
-      <Typography variant='h1' style={{textAlign: 'center'}}>Texas UIL 3rd Grade</Typography>
-      <Typography variant='h2' style={{textAlign: 'center'}}>Music Memory Game</Typography>
-      <div className="cards">
-        {MUSIC_MEMORY_PIECES.map((item, i) => { 
-          return <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
-            {item.majorWork 
-              ? 
-              <div>
-                  <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
-                  <h3 style={{color: 'white'}}>{item.selection}</h3>
-                </div>
-              :
-              <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
-            }
-            <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
-            </div>
-        })}
-      </div>
-    </Container>
+    <>
+      <Paper
+        id="overlay"
+        className="overlay"
+        sx={{ display: 'none', backgroundColor: '#000000ee'}}
+        component={Stack}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}>
+        <Box component={Stack} direction="column" justifyContent="center" alignItems="center" spacing={5}>
+          <Typography variant='body1' sx={{ fontWeight: 'bold' }} id="reply">placeholder</Typography>
+        </Box>
+      </Paper>
+      <Container sx={{ p: 5 }}>
+        <Typography variant='h1' sx={{ fontWeight: 'bold', textAlign: 'center'}}>Texas UIL 3rd Grade</Typography>
+        <Typography variant='h2' sx={{ textAlign: 'center'}}>Music Memory Game</Typography>
+        <Container>
+          <Grid container sx={{ gap: 2, mt: 5 }} spacing={2} alignItems="center" justifyContent="center">
+            {new Array(16).fill().map((item, i) => {
+              return <Card key={i} sx={{ backgroundColor: 'primary.dark', borderRadius: 2, height: 160, width: 160, ':hover': {
+                boxShadow: 10,
+              }, }}  variant="outlined" style={{ textDecoration: 'none' }}>
+                <CardContent>
+                  <Typography variant='body1' sx={{ color: 'text.tertiary', fontWeight: 'bold', textAlign: 'center' }}><Skeleton animation="wave" /></Typography>
+                  <Typography variant='body1' sx={{ color: 'text.disabled', textAlign: 'center' }}><Skeleton animation="wave" /></Typography>
+                </CardContent>
+              </Card>
+            })}
+          </Grid>
+        </Container>
+      </Container>
+    </>
   );
     console.log(item[0].url)
     
   return (
-    <Container sx={{ p: 5 }}>
-      <div className="header"></div>
-      <div id="overlay" className="overlay absolute">
-        <img className="image" src={item[0].url} alt='cat gif' />
-        <Typography variant='h1' id="reply" className="child">placeholder</Typography>
-      </div>
-      {styledYouTube(currentPiece.youtube)}
-      <Typography variant='h1' style={{textAlign: 'center'}}>Texas UIL 3rd Grade</Typography>
-      <Typography variant='h2' style={{textAlign: 'center'}}>Music Memory Game</Typography>
-      <div className="cards">
-        {MUSIC_MEMORY_PIECES.map((item, i) => {
-          return <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
-            {item.majorWork 
-              ? 
-                <div>
-                  <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
-                  <h3 style={{color: 'white'}}>{item.selection}</h3>
-                </div>
-              :
-                <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
-            }
-            <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
-          </div>
-        })}
-      </div>
-    </Container>
+    <>
+      <Paper
+        id="overlay"
+        className="overlay"
+        sx={{ display: 'none', backgroundColor: '#000000ee'}}
+        component={Stack}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}>
+        <Box component={Stack} direction="column" justifyContent="center" alignItems="center" spacing={5}>
+          <img className="image" src={item[0].url} alt='cat gif' />
+          <Typography variant='body1' sx={{ fontWeight: 'bold' }} id="reply">placeholder</Typography>
+        </Box>
+      </Paper>
+      <Container sx={{ p: 5 }}>
+        <Typography variant='h1' sx={{ fontWeight: 'bold', textAlign: 'center'}}>Texas UIL 3rd Grade</Typography>
+        <Typography variant='h2' sx={{ textAlign: 'center'}}>Music Memory Game</Typography>
+        <Container>
+          <Grid container sx={{ gap: 2, mt: 5 }} spacing={2} alignItems="center" justifyContent="center">
+            {MUSIC_MEMORY_PIECES.map((item, i) => {
+              return <Card key={i} sx={{ backgroundColor: 'primary.dark', borderRadius: 2, height: 160, width: 160, ':hover': {
+                boxShadow: 10,
+              }, }}  variant="outlined" style={{ textDecoration: 'none' }} onClick={(e) => correctPiece(e, item)}>
+                <CardContent>
+                  {item.majorWork
+                    ?
+                    <>
+                        <Typography variant='body1' sx={{ color: 'text.tertiary', fontWeight: 'bold', textAlign: 'center' }}>{item.majorWork}</Typography>
+                        <Typography variant='body1' sx={{ color: 'text.tertiary', fontWeight: 'bold', textAlign: 'center' }}>{item.selection}</Typography>
+                      </>
+                    :
+                    <Typography variant='body1' sx={{ color: 'text.tertiary', fontWeight: 'bold', textAlign: 'center' }}>{item.selection}</Typography>
+                  }
+                  <Typography variant='body1' sx={{ color: 'text.disabled', textAlign: 'center' }}>{item.composer}</Typography>
+                </CardContent>
+              </Card>
+            })}
+          </Grid>
+          {styledYouTube(currentPiece.youtube)}
+        </Container>
+      </Container>
+    </>
   );
 
 };

@@ -61,21 +61,17 @@
   display: grid;
 }
 
-.header {
-  position: absolute;
-  background-color: orange;
-  height: 20px;
-  width: 100%;
-}
-
 .overlay {  
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:1000;
-  background-color: #000000ee;
+  position:fixed;
+  z-index:1;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .absolute {
@@ -84,8 +80,7 @@
 }
 
 .image {
-  margin: auto;
-  width: 45%;
+  width: 95%;
   border-radius: 20px;
 }
 
