@@ -1,6 +1,9 @@
 import './App.css';
 import React from "react";
-import {MUSIC_MEMORY_PIECES, currentPiece, correctPiece, styledYouTube} from './helpers/helperFunctions'
+import { Container, Typography } from '@mui/material';
+import { currentPiece, correctPiece } from './helpers/helperFunctions';
+import MUSIC_MEMORY_PIECES from './helpers/musicSetup';
+import styledYouTube from './helpers/styledYouTube';
 
 class App extends React.Component {
 	// Constructor
@@ -36,61 +39,57 @@ render() {
   const { DataisLoaded, item } = this.state;
   if (!DataisLoaded || !currentPiece?.youtube)
   return (
-    <>
-        <div className="center">
-            <h1 style={{textAlign: 'center'}}>Texas UIL 3rd Grade</h1>
-            <h2 style={{textAlign: 'center'}}>Music Memory Game</h2>
-        </div>
-        <div className="cards">
-          {MUSIC_MEMORY_PIECES.map((item, i) => { 
-            return <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
-              {item.majorWork 
-                ? 
-                <div>
-                    <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
-                    <h3 style={{color: 'white'}}>{item.selection}</h3>
-                  </div>
-                :
-                <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
-              }
-              <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
-              </div>
-          })}
-        </div>
-      </>
-    );
+    <Container sx={{ p: 5 }}>
+      <Typography variant='h1' style={{textAlign: 'center'}}>Texas UIL 3rd Grade</Typography>
+      <Typography variant='h2' style={{textAlign: 'center'}}>Music Memory Game</Typography>
+      <div className="cards">
+        {MUSIC_MEMORY_PIECES.map((item, i) => { 
+          return <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
+            {item.majorWork 
+              ? 
+              <div>
+                  <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
+                  <h3 style={{color: 'white'}}>{item.selection}</h3>
+                </div>
+              :
+              <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
+            }
+            <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
+            </div>
+        })}
+      </div>
+    </Container>
+  );
     console.log(item[0].url)
     
-    return (
-      <>
-        <div className="header"></div>
-        <div id="overlay" className="overlay absolute">
-          <img className="image" src={item[0].url} alt='cat gif' />
-          <h1 id="reply" className="child">placeholder</h1>
-        </div>
-        {styledYouTube(currentPiece.youtube)}
-        <div className="center">
-          <h1 style={{textAlign: 'center'}}>Texas UIL 3rd Grade</h1>
-          <h2 style={{textAlign: 'center'}}>Music Memory Game</h2>
-        </div>
-        <div className="cards">
-          {MUSIC_MEMORY_PIECES.map((item, i) => {
-            return <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
-              {item.majorWork 
-                ? 
-                  <div>
-                    <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
-                    <h3 style={{color: 'white'}}>{item.selection}</h3>
-                  </div>
-                :
-                  <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
-              }
-              <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
-            </div>
-          })}
-        </div>
-      </>
-    );
+  return (
+    <Container sx={{ p: 5 }}>
+      <div className="header"></div>
+      <div id="overlay" className="overlay absolute">
+        <img className="image" src={item[0].url} alt='cat gif' />
+        <Typography variant='h1' id="reply" className="child">placeholder</Typography>
+      </div>
+      {styledYouTube(currentPiece.youtube)}
+      <Typography variant='h1' style={{textAlign: 'center'}}>Texas UIL 3rd Grade</Typography>
+      <Typography variant='h2' style={{textAlign: 'center'}}>Music Memory Game</Typography>
+      <div className="cards">
+        {MUSIC_MEMORY_PIECES.map((item, i) => {
+          return <div className="card" key={i} onClick={(e) => correctPiece(e, item)}>
+            {item.majorWork 
+              ? 
+                <div>
+                  <h3 style={{color: 'lightyellow'}}>{item.majorWork}</h3>
+                  <h3 style={{color: 'white'}}>{item.selection}</h3>
+                </div>
+              :
+                <h3 style={{color: 'lightyellow'}}>{item.selection}</h3>
+            }
+            <h3 style={{color: 'firebrick'}}>{item.composer}</h3>
+          </div>
+        })}
+      </div>
+    </Container>
+  );
 
 };
 }
