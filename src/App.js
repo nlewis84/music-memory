@@ -88,7 +88,7 @@ render() {
         spacing={2}>
         <Box component={Stack} direction="column" justifyContent="center" alignItems="center" spacing={5}>
           <img className="image" src={item[0].url} alt='cat gif' />
-          <Typography variant='body1' sx={{ fontWeight: 'bold' }} id="reply">placeholder</Typography>
+          <Typography variant='body1' sx={{ fontSize: 'h6.fontSize', fontWeight: 'bold', textAlign: 'center'}} id="reply">placeholder</Typography>
         </Box>
       </Paper>
       <Container sx={{ p: 5 }}>
