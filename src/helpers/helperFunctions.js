@@ -15,7 +15,7 @@ let currentPiece = MUSIC_MEMORY_PIECES[currentIndex];
 
 function correctPiece(e, item) {
   if (item !== currentPiece) {
-    guess = `Oh no! This was actually ${currentPiece.composer}'s ${currentPiece?.majorWork || ''} ${currentPiece.selection}`
+    guess = `Oh no! This was actually ${currentPiece?.majorWork || ''} ${currentPiece.selection} by ${currentPiece.composer}`
     overlay(false); 
   
     return setTimeout(function() {

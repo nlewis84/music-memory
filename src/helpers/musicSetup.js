@@ -1,6 +1,6 @@
 
 const MUSIC_MEMORY_PIECES = [
-  {selection: 'Minuet in G', composer: 'Beethoven', youtube: 'zSXRJwspGU0'},
+  {selection: 'Minuet in G', composer: 'Beethoven', youtube: 'gQ-KTGqaqlA'},
   {majorWork: 'The Creation', selection: 'The Heavens Are Telling', composer: 'Haydn', youtube: 'OwqqfbinUDY'},
   {majorWork: 'Cello Suite No. 1 in G Major', selection: 'Prelude', composer: 'Bach', youtube: '1prweT95Mo0'},
   {majorWork: 'Symphonie Fantastique', selection: 'March to the Scaffold', composer: 'Berlioz', youtube: 'QwCuFaq2L3U'},
