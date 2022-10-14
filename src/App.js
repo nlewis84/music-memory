@@ -402,11 +402,11 @@ class App extends React.Component {
         <Typography
           variant="h5"
           sx={{
-            textAlign: 'center',
+            textAlign: 'right',
             position: 'absolute',
             bottom: 25,
             left: 0,
-            right: 0,
+            right: 25,
           }}
         >
           <a
