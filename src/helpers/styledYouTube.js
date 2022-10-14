@@ -29,6 +29,7 @@ function StyledYouTube(id) {
       mute: 1,
       enablejsapi: 1,
       start: array[randomTime],
+      playsinline: 1,
     },
   };
 
