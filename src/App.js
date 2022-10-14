@@ -63,21 +63,34 @@ class App extends React.Component {
               height: '100vh',
             }}
           >
-
-
-          <Typography
-            variant="h4"
-            component="div"
-            sx={{ flexGrow: 1, textAlign: 'center' }}
-          >
-            Due to the limitations of auto play on phones and tablets, this site
-            is designed for use on desktops, laptops, or chromebooks.
-          </Typography>
+            <Grid
+              container
+              spacing={2}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Grid item xs={12}>
+                <Typography
+                  variant="h4"
+                  component="div"
+                  sx={{ flexGrow: 1, textAlign: 'center' }}
+                >
+                  Due to the limitations of auto play on phones and tablets,
+                  this site is designed for use on desktops, laptops, or
+                  chromebooks. Basically, Apple and Google have decided to 
+                  protect you and your data limits from spammy videos eating 
+                  up your data caps.
+                </Typography>
+              </Grid>
+            </Grid>
           </Container>
         </div>
       );
     }
-
 
     if (!DataisLoaded || !currentPiece?.youtube)
       return (
@@ -100,8 +113,12 @@ class App extends React.Component {
               spacing={5}
             >
               <Typography
-                variant="body1"
-                sx={{ fontWeight: 'bold' }}
+                variant="h4"
+                sx={{
+                  fontSize: 'h4.fontSize',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                }}
                 id="reply"
               >
                 placeholder
