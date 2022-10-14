@@ -11,6 +11,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { isMobile } from 'react-device-detect';
 import { currentPiece, correctPiece } from './helpers/helperFunctions';
 import MUSIC_MEMORY_PIECES from './helpers/musicSetup';
 import StyledYouTube from './helpers/styledYouTube';
@@ -48,6 +49,23 @@ class App extends React.Component {
 
   render() {
     const { DataisLoaded, item } = this.state;
+
+    if (isMobile) {
+      return (
+        <div className="App">
+          {/* center a typography that says Due to the limitations of auto play on phones and tablets, this site is designed for use on laptops or chromebooks. */}
+          <Typography
+            variant="h4"
+            component="div"
+            sx={{ flexGrow: 1, textAlign: 'center' }}
+          >
+            Due to the limitations of auto play on phones and tablets, this site
+            is designed for use on laptops or chromebooks.
+          </Typography>
+        </div>
+      );
+    }
+
 
     if (!DataisLoaded || !currentPiece?.youtube)
       return (
