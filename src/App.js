@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { currentPiece, correctPiece } from './helpers/helperFunctions';
 import MUSIC_MEMORY_PIECES from './helpers/musicSetup';
-import StyledYouTube from './helpers/StyledYouTube';
+import StyledYouTube from './helpers/styledYouTube';
 
 class App extends React.Component {
   // Constructor
