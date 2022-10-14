@@ -71,7 +71,7 @@ class App extends React.Component {
             sx={{ flexGrow: 1, textAlign: 'center' }}
           >
             Due to the limitations of auto play on phones and tablets, this site
-            is designed for use on laptops or chromebooks.
+            is designed for use on desktops, laptops, or chromebooks.
           </Typography>
           </Container>
         </div>
