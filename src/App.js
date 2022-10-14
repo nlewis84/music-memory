@@ -53,7 +53,18 @@ class App extends React.Component {
     if (isMobile) {
       return (
         <div className="App">
-          {/* center a typography that says Due to the limitations of auto play on phones and tablets, this site is designed for use on laptops or chromebooks. */}
+          {/* a container that is centered vertically and horizontally */}
+          <Container
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100vh',
+            }}
+          >
+
+
           <Typography
             variant="h4"
             component="div"
@@ -62,6 +73,7 @@ class App extends React.Component {
             Due to the limitations of auto play on phones and tablets, this site
             is designed for use on laptops or chromebooks.
           </Typography>
+          </Container>
         </div>
       );
     }
