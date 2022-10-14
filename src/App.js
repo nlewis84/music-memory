@@ -48,6 +48,7 @@ class App extends React.Component {
 
   render() {
     const { DataisLoaded, item } = this.state;
+
     if (!DataisLoaded || !currentPiece?.youtube)
       return (
         <>
@@ -88,75 +89,75 @@ class App extends React.Component {
               Music Memory Game
             </Typography>
             <Typography
-            variant="body1"
-            sx={{
-              fontSize: 'h6.fontSize',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              color: 'text.secondary',
-              mt: 2,
-            }}
-          >
-            Trouble? Click this button
-          </Typography>
-          <Container
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'primary.dark',
-              borderRadius: '50%',
-              height: 80,
-              width: 80,
-              ':hover': {
-                boxShadow: 10,
-              },
-              ':active': { boxShadow: 0 },
-            }}
-            onClick={() => window.location.reload()}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="192"
-              height="192"
-              fill="#ffffff"
-              viewBox="0 0 256 256"
+              variant="body1"
+              sx={{
+                fontSize: 'h6.fontSize',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                color: 'text.secondary',
+                mt: 2,
+              }}
             >
-              <rect width="256" height="256" fill="none"></rect>
-              <polyline
-                points="176.2 99.7 224.2 99.7 224.2 51.7"
-                fill="none"
-                stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
-              ></polyline>
-              <path
-                d="M65.8,65.8a87.9,87.9,0,0,1,124.4,0l34,33.9"
-                fill="none"
-                stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
-              ></path>
-              <polyline
-                points="79.8 156.3 31.8 156.3 31.8 204.3"
-                fill="none"
-                stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
-              ></polyline>
-              <path
-                d="M190.2,190.2a87.9,87.9,0,0,1-124.4,0l-34-33.9"
-                fill="none"
-                stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
-              ></path>
-            </svg>
-          </Container>
+              Trouble? Click this button
+            </Typography>
+            <Container
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'primary.dark',
+                borderRadius: '50%',
+                height: 80,
+                width: 80,
+                ':hover': {
+                  boxShadow: 10,
+                },
+                ':active': { boxShadow: 0 },
+              }}
+              onClick={() => window.location.reload()}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="192"
+                height="192"
+                fill="#ffffff"
+                viewBox="0 0 256 256"
+              >
+                <rect width="256" height="256" fill="none"></rect>
+                <polyline
+                  points="176.2 99.7 224.2 99.7 224.2 51.7"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="24"
+                ></polyline>
+                <path
+                  d="M65.8,65.8a87.9,87.9,0,0,1,124.4,0l34,33.9"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="24"
+                ></path>
+                <polyline
+                  points="79.8 156.3 31.8 156.3 31.8 204.3"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="24"
+                ></polyline>
+                <path
+                  d="M190.2,190.2a87.9,87.9,0,0,1-124.4,0l-34-33.9"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="24"
+                ></path>
+              </svg>
+            </Container>
 
             <Container>
               <Grid
@@ -399,24 +400,37 @@ class App extends React.Component {
             {StyledYouTube(currentPiece.youtube)}
           </Container>
         </Container>
-        <Typography
-          variant="h5"
+        <Stack
           sx={{
-            textAlign: 'right',
-            position: 'absolute',
-            bottom: 25,
-            left: 0,
-            right: 25,
+            position: 'fixed',
+            width: '100px',
+            bottom: 0,
+            right: 75,
+            m: 2,
+            zIndex: 1,
           }}
+          direction="column"
+          spacing={2}
         >
-          <a
-            href="https://account.venmo.com/u/Nathan-Lewis-35"
-            target="_blank"
-            rel="noreferrer"
+          <Typography
+            variant="body1"
+            sx={{
+              textAlign: 'center',
+              position: 'absolute',
+              bottom: 25,
+              left: 0,
+              right: 25,
+            }}
           >
-            ☕️ Buy me a coffee
-          </a>
-        </Typography>
+            <a
+              href="https://account.venmo.com/u/Nathan-Lewis-35"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ☕️ Buy me a coffee
+            </a>
+          </Typography>
+        </Stack>
       </>
     );
   }

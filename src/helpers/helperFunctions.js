@@ -10,8 +10,8 @@ function overlay(boolean) {
 
 let guess = ''
 
-let currentIndex = Math.floor(Math.random() * (16 + 1));
-let currentPiece = MUSIC_MEMORY_PIECES[currentIndex];
+// select a random item from the array MUSIC_MEMORY_PIECES
+let currentPiece = MUSIC_MEMORY_PIECES[Math.floor(Math.random() * MUSIC_MEMORY_PIECES.length)];
 
 function correctPiece(e, item) {
   if (item !== currentPiece) {

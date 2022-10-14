@@ -3,7 +3,7 @@ const MUSIC_MEMORY_PIECES = [
   // { majorWork: '', selection: '', composer: '', youtube: '' },
   { majorWork: 'Toccata and Fugue in d minor', selection: 'Toccata', composer: 'Bach', youtube: 'ho9rZjlsyYY' },
   { majorWork: 'Symphony No. 6, "Pastoral"', selection: 'Movement 3', composer: 'Beethoven', youtube: 'fbFxVVLM2zc' },
-  { majorWork: 'Solomon', selection: 'The Arrival of the Queen of Sheba', composer: 'Handel', youtube: 'TGKJ9MgCOQ' },
+  { majorWork: 'Solomon', selection: 'The Arrival of the Queen of Sheba', composer: 'Handel', youtube: '-TGKJ9MgCOQ' },
   { majorWork: '', selection: 'Variations on "America"', composer: 'Ives', youtube: 'N7TuU5zxge8' },
   { majorWork: '', selection: 'The Entertainer', composer: 'Joplin', youtube: 'g8syRhvSZdk' },
   { majorWork: 'Gayane Suite', selection: 'Sabre Dance', composer: 'Khachaturian', youtube: 'mUQHGpxrz-8' },
