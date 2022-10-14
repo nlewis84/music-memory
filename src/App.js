@@ -5,10 +5,12 @@ import {
   Card,
   CardContent,
   Container,
+  Fab,
   Grid,
   Paper,
   Skeleton,
   Stack,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import { isMobile } from 'react-device-detect';
@@ -53,7 +55,6 @@ class App extends React.Component {
     if (isMobile) {
       return (
         <div className="App">
-          {/* a container that is centered vertically and horizontally */}
           <Container
             sx={{
               display: 'flex',
@@ -81,9 +82,9 @@ class App extends React.Component {
                 >
                   Due to the limitations of auto play on phones and tablets,
                   this site is designed for use on desktops, laptops, or
-                  chromebooks. Basically, Apple and Google have decided to 
-                  protect you and your data limits from spammy videos eating 
-                  up your data caps.
+                  chromebooks. Basically, Apple and Google have decided to
+                  protect you and your data limits from spammy videos eating up
+                  your data caps.
                 </Typography>
               </Grid>
             </Grid>
@@ -452,31 +453,106 @@ class App extends React.Component {
             position: 'fixed',
             width: '100px',
             bottom: 0,
-            right: 75,
+            right: 0,
             m: 2,
             zIndex: 1,
           }}
           direction="column"
           spacing={2}
         >
-          <Typography
-            variant="body1"
-            sx={{
-              textAlign: 'center',
-              position: 'absolute',
-              bottom: 25,
-              left: 0,
-              right: 25,
-            }}
+          <Grid
+            container
+            sx={{ gap: 2, mt: 5 }}
+            spacing={2}
+            alignItems="center"
+            justifyContent="center"
           >
-            <a
-              href="https://account.venmo.com/u/Nathan-Lewis-35"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ☕️ Buy me a coffee
-            </a>
-          </Typography>
+            <Grid item>
+              <Tooltip title="Buy me a coffee!">
+                <Fab
+                  color="primary"
+                  aria-label="add"
+                  onClick={() =>
+                    window.open('https://account.venmo.com/u/Nathan-Lewis-35')
+                  }
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <rect width="48" height="48" fill="none"></rect>
+                    <path
+                      d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80Z"
+                      opacity="0.2"
+                    ></path>
+                    <line
+                      x1="88"
+                      y1="24"
+                      x2="88"
+                      y2="56"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="120"
+                      y1="24"
+                      x2="120"
+                      y2="56"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="152"
+                      y1="24"
+                      x2="152"
+                      y2="56"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <line
+                      x1="32"
+                      y1="216"
+                      x2="208"
+                      y2="216"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></line>
+                    <path
+                      d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                    <path
+                      d="M208,88h0a32,32,0,0,1,32,32v8a32,32,0,0,1-32,32h-3.4"
+                      fill="none"
+                      stroke="#FFFFFF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="16"
+                    ></path>
+                  </svg>
+                </Fab>
+              </Tooltip>
+            </Grid>
+          </Grid>
         </Stack>
       </>
     );
