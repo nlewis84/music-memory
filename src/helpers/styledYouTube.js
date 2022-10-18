@@ -31,7 +31,7 @@ function StyledYouTube(id, mobile) {
   };
 
   const opts = {
-    height: mobile ? '100%' : '0%',
+    height: mobile ? '100%' : '0',
     width: '100%',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
