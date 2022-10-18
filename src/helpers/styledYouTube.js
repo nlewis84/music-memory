@@ -35,7 +35,7 @@ function StyledYouTube(id, mobile) {
     width: '100%',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: mobile ? 0 : 1,
       mute: 1,
       enablejsapi: 1,
       start: array[randomTime],
