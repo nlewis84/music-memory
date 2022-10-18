@@ -273,13 +273,13 @@ class App extends React.Component {
               <div
                 style={{
                   gridArea: 'inner-div',
-                  zIndex: 1,
+                  zIndex: 2,
                   background: '#E1E1E1',
                   height: '50px',
                   width: '300px',
                 }}
               />
-              <div style={{ gridArea: 'inner-div', zIndex: 0 }}>
+              <div style={{ gridArea: 'inner-div', zIndex: 1 }}>
                 {StyledYouTube(currentPiece.youtube, true)}
               </div>
             </div>
@@ -366,7 +366,7 @@ class App extends React.Component {
               bottom: 0,
               left: 0,
               m: 2,
-              zIndex: 1,
+              zIndex: 3,
             }}
             direction="column"
             spacing={2}
@@ -450,7 +450,7 @@ class App extends React.Component {
               bottom: 0,
               right: 0,
               m: 2,
-              zIndex: 1,
+              zIndex: 3,
             }}
             direction="column"
             spacing={2}
@@ -749,7 +749,7 @@ class App extends React.Component {
             bottom: 0,
             left: 0,
             m: 2,
-            zIndex: 1,
+            zIndex: 3,
           }}
           direction="column"
           spacing={2}
@@ -762,7 +762,7 @@ class App extends React.Component {
             justifyContent="center"
           >
             <Grid item>
-              <Tooltip title="About this app">
+              <Tooltip title="About me">
                 <Fab
                   color="primary"
                   aria-label="about"
@@ -770,8 +770,8 @@ class App extends React.Component {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="192"
-                    height="192"
+                    width="32"
+                    height="32"
                     fill="#ffffff"
                     viewBox="0 0 256 256"
                   >
@@ -833,7 +833,7 @@ class App extends React.Component {
             bottom: 0,
             right: 0,
             m: 2,
-            zIndex: 1,
+            zIndex: 3,
           }}
           direction="column"
           spacing={2}
