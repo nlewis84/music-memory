@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import ReactGA from 'react-ga';
 import {
   Box,
   Card,
@@ -383,7 +384,13 @@ class App extends React.Component {
                   <Fab
                     color="primary"
                     aria-label="about"
-                    onClick={() => window.open('https://nathanlewis.dev/about')}
+                    onClick={() => {
+                      ReactGA.event({
+                        category: 'About Me',
+                        action: 'Clicked',
+                      });
+                      window.open('https://nathanlewis.dev/about');
+                    }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -467,9 +474,15 @@ class App extends React.Component {
                   <Fab
                     color="primary"
                     aria-label="add"
-                    onClick={() =>
-                      window.open('https://account.venmo.com/u/Nathan-Lewis-35')
-                    }
+                    onClick={() => {
+                      ReactGA.event({
+                        category: 'Buy me a coffee',
+                        action: 'Clicked',
+                      });
+                      window.open(
+                        'https://account.venmo.com/u/Nathan-Lewis-35'
+                      );
+                    }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -622,7 +635,13 @@ class App extends React.Component {
               },
               ':active': { boxShadow: 0 },
             }}
-            onClick={() => window.location.reload()}
+            onClick={() => {
+              ReactGA.event({
+                category: 'No Sound Button',
+                action: 'Clicked',
+              });
+              window.location.reload();
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -766,7 +785,13 @@ class App extends React.Component {
                 <Fab
                   color="primary"
                   aria-label="about"
-                  onClick={() => window.open('www.nathanlewis.dev')}
+                  onClick={() => {
+                    ReactGA.event({
+                      category: 'About Me',
+                      action: 'Clicked',
+                    });
+                    window.open('https://nathanlewis.dev/about');
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -850,9 +875,13 @@ class App extends React.Component {
                 <Fab
                   color="primary"
                   aria-label="add"
-                  onClick={() =>
-                    window.open('https://account.venmo.com/u/Nathan-Lewis-35')
-                  }
+                  onClick={() => {
+                    ReactGA.event({
+                      category: 'Buy me a coffee',
+                      action: 'Clicked',
+                    });
+                    window.open('https://account.venmo.com/u/Nathan-Lewis-35');
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

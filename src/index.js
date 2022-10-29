@@ -9,9 +9,12 @@ import '@fontsource/roboto/700.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('G-2YZZRM8DZJ', { debug: true });
 
 ReactDOM.render(
-	<ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
     <CssBaseline />
     <App />
   </ThemeProvider>,
