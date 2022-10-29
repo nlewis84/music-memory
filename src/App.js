@@ -749,7 +749,7 @@ class App extends React.Component {
                       )}
                       <Typography
                         variant="body1"
-                        sx={{ color: 'text.disabled', textAlign: 'center' }}
+                        sx={{ color: 'text.tertiary', textAlign: 'center' }}
                       >
                         {item.composer}
                       </Typography>
