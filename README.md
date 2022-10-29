@@ -12,7 +12,6 @@ This project is a single page application for Texas 3rd Grade students to practi
 
 ## 🎹 Usage
 
-- `cd` into the `music-memory` directory
 - Run `yarn`
 - Run `yarn start`
 - Browser should open automatically, but if not navigate to the local url provided by the application
