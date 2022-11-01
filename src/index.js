@@ -12,6 +12,7 @@ import theme from './theme';
 import ReactGA from 'react-ga';
 
 ReactGA.initialize('G-2YZZRM8DZJ', { debug: true });
+ReactGA.ga('set', 'checkProtocolTask', null);
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
