@@ -10,7 +10,7 @@ const MUSIC_MEMORY_PIECES = [
   { majorWork: 'Songs of a Wayfarer', selection: "Ging heut' morgen über's Feld", composer: 'Mahler', youtube: '6VCpbMPhmWY' },
   { majorWork: 'Horn Concerto No. 2', selection: 'Movement 3', composer: 'Mozart', youtube: 'u3SlQYcuAEE' },
   { majorWork: 'Gloria', selection: 'Laudamus te', composer: 'Poulenc', youtube: 'eMYy0_dXzOs' },
-  { majorWork: '', selection: 'Sing, Sing, Sing', composer: 'Prima', youtube: 'HDsWyXIR1to' },
+  { majorWork: '', selection: 'Sing, Sing, Sing', composer: 'Prima', youtube: 'r2S1I_ien6A' },
   { majorWork: 'Symphony No. 1, "Classical"', selection: 'Finale', composer: 'Prokofiev', youtube: '2ntRJCqQiFw' },
   { majorWork: 'The Barber of Seville', selection: 'Largo al factotum', composer: 'Rossini', youtube: 'JhLxK2xGqqo' },
   { majorWork: 'English Folk Song Suite', selection: 'Seventeen Come Sunday', composer: 'Vaughan Williams', youtube: '5f9yAI2D1PE' },
