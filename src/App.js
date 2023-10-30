@@ -136,33 +136,33 @@ class App extends React.Component {
                   points="176.2 99.7 224.2 99.7 224.2 51.7"
                   fill="none"
                   stroke="#ffffff"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="24"
                 ></polyline>
                 <path
                   d="M65.8,65.8a87.9,87.9,0,0,1,124.4,0l34,33.9"
                   fill="none"
                   stroke="#ffffff"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="24"
                 ></path>
                 <polyline
                   points="79.8 156.3 31.8 156.3 31.8 204.3"
                   fill="none"
                   stroke="#ffffff"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="24"
                 ></polyline>
                 <path
                   d="M190.2,190.2a87.9,87.9,0,0,1-124.4,0l-34-33.9"
                   fill="none"
                   stroke="#ffffff"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="24"
                 ></path>
               </svg>
             </Container>
@@ -408,41 +408,41 @@ class App extends React.Component {
                         d="M94,61.4a20,20,0,0,1,34.6-20l30,51.9"
                         fill="none"
                         stroke="#ffffff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                       <path
                         d="M67.4,95.2l-16-27.7A20,20,0,0,1,86,47.5l34,58.9"
                         fill="none"
                         stroke="#ffffff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                       <path
                         d="M154,165.3a39.9,39.9,0,0,1,14.6-54.6l-10-17.4a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l22,38.1"
                         fill="none"
                         stroke="#ffffff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                       <path
                         d="M81.1,240A110.3,110.3,0,0,1,48,204"
                         fill="none"
                         stroke="#ffffff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                       <path
                         d="M176,31a51.7,51.7,0,0,1,45,26"
                         fill="none"
                         stroke="#ffffff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                     </svg>
                   </Fab>
@@ -503,9 +503,9 @@ class App extends React.Component {
                         y2="56"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></line>
                       <line
                         x1="120"
@@ -514,9 +514,9 @@ class App extends React.Component {
                         y2="56"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></line>
                       <line
                         x1="152"
@@ -525,9 +525,9 @@ class App extends React.Component {
                         y2="56"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></line>
                       <line
                         x1="32"
@@ -536,25 +536,25 @@ class App extends React.Component {
                         y2="216"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></line>
                       <path
                         d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                       <path
                         d="M208,88h0a32,32,0,0,1,32,32v8a32,32,0,0,1-32,32h-3.4"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="16"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="16"
                       ></path>
                     </svg>
                   </Fab>
@@ -655,33 +655,33 @@ class App extends React.Component {
                 points="176.2 99.7 224.2 99.7 224.2 51.7"
                 fill="none"
                 stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="24"
               ></polyline>
               <path
                 d="M65.8,65.8a87.9,87.9,0,0,1,124.4,0l34,33.9"
                 fill="none"
                 stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="24"
               ></path>
               <polyline
                 points="79.8 156.3 31.8 156.3 31.8 204.3"
                 fill="none"
                 stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="24"
               ></polyline>
               <path
                 d="M190.2,190.2a87.9,87.9,0,0,1-124.4,0l-34-33.9"
                 fill="none"
                 stroke="#ffffff"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="24"
               ></path>
             </svg>
           </Container>
@@ -809,41 +809,41 @@ class App extends React.Component {
                       d="M94,61.4a20,20,0,0,1,34.6-20l30,51.9"
                       fill="none"
                       stroke="#ffffff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                     <path
                       d="M67.4,95.2l-16-27.7A20,20,0,0,1,86,47.5l34,58.9"
                       fill="none"
                       stroke="#ffffff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                     <path
                       d="M154,165.3a39.9,39.9,0,0,1,14.6-54.6l-10-17.4a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l22,38.1"
                       fill="none"
                       stroke="#ffffff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                     <path
                       d="M81.1,240A110.3,110.3,0,0,1,48,204"
                       fill="none"
                       stroke="#ffffff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                     <path
                       d="M176,31a51.7,51.7,0,0,1,45,26"
                       fill="none"
                       stroke="#ffffff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                   </svg>
                 </Fab>
@@ -902,9 +902,9 @@ class App extends React.Component {
                       y2="56"
                       fill="none"
                       stroke="#FFFFFF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></line>
                     <line
                       x1="120"
@@ -913,9 +913,9 @@ class App extends React.Component {
                       y2="56"
                       fill="none"
                       stroke="#FFFFFF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></line>
                     <line
                       x1="152"
@@ -924,9 +924,9 @@ class App extends React.Component {
                       y2="56"
                       fill="none"
                       stroke="#FFFFFF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></line>
                     <line
                       x1="32"
@@ -935,25 +935,25 @@ class App extends React.Component {
                       y2="216"
                       fill="none"
                       stroke="#FFFFFF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></line>
                     <path
                       d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80"
                       fill="none"
                       stroke="#FFFFFF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                     <path
                       d="M208,88h0a32,32,0,0,1,32,32v8a32,32,0,0,1-32,32h-3.4"
                       fill="none"
                       stroke="#FFFFFF"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="16"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="16"
                     ></path>
                   </svg>
                 </Fab>

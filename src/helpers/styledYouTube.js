@@ -13,12 +13,9 @@ function StyledYouTube(id, mobile) {
 
     if (e.target.isMuted() && e.target.getPlayerState() === 1 && isUnMuted) {
       e.target.unMute();
-      // Sing, Sing, Sing, Vivaldi, Entertainer, and Barber of Seville are REALLY loud.....turn it down
-      id === 'r2S1I_ien6A' ||
-      id === 'JhLxK2xGqqo' ||
-      id === 'g8syRhvSZdk' ||
-      id === 'IVyRd9mlGyQ'
-        ? e.target.setVolume(50)
+      // Surprise Symphony and Madama Butterfly are too quiet, so we need to turn up the volume
+      id === 'lLjwkamp3lI' || id === '8-rKxGZSRKk'
+        ? e.target.setVolume(100)
         : e.target.setVolume(75);
       e.target.seekTo(duration * array[randomTime]);
       e.target.playVideo(); // resume playback
