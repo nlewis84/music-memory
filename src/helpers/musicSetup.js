@@ -7,7 +7,7 @@ const MUSIC_MEMORY_PIECES = [
   { majorWork: 'Lakmé', selection: 'Flower Duet', composer: 'Delibes', youtube: 'C1ZL5AxmK_A' },
   { majorWork: '', selection: 'El Grillo', composer: 'des Prez', youtube: 'O_EsMD6oDvI' },
   { majorWork: 'Estancia Suite', selection: 'Malambo', composer: 'Ginastera', youtube: '' },
-  { majorWork: '', selection: 'Sixty Minutes Polka', composer: 'Deutsch', youtube: 'Fx4MKh0vNyY' },
+  { majorWork: '', selection: 'Sixty Minutes Polka', composer: 'Deutscher', youtube: 'Fx4MKh0vNyY' },
   { majorWork: 'Symphony No. 94, "Surprise"', selection: 'Movement 2', composer: 'Haydn', youtube: 'lLjwkamp3lI' },
   { majorWork: 'Così fan tutte', selection: 'Overture', composer: 'Mozart', youtube: '9-RkOrzMJMI' },
   { majorWork: 'Madama Butterfly', selection: 'Humming Chorus', composer: 'Puccini', youtube: '8-rKxGZSRKk' },
