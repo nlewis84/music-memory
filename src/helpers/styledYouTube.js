@@ -14,8 +14,11 @@ function StyledYouTube(id, mobile) {
     if (e.target.isMuted() && e.target.getPlayerState() === 1 && isUnMuted) {
       e.target.unMute();
       // Surprise Symphony and Madama Butterfly are too quiet, so we need to turn up the volume
-      id === 'lLjwkamp3lI' || id === '8-rKxGZSRKk'
+      id === 'lLjwkamp3lI'
         ? e.target.setVolume(100)
+        : e.target.setVolume(75);
+      id === '8-rKxGZSRKk'
+        ? e.target.setVolume(125)
         : e.target.setVolume(75);
       e.target.seekTo(duration * array[randomTime]);
       e.target.playVideo(); // resume playback
