@@ -1,22 +1,41 @@
 const MUSIC_MEMORY_PIECES = [
   // { majorWork: '', selection: '', composer: '', youtube: '' },
-  { majorWork: 'Orchestral Suite No. 2', selection: 'Badinerie', composer: 'Bach', youtube: '4ufehp7gULA' },
-  { majorWork: 'Hungarian Sketches', selection: 'Bear Dance', composer: 'Bartók', youtube: 'vJkWrisEAtI'},
-  { majorWork: 'Piano Sonata No. 8, "Pathétique"', selection: 'Movement 3', composer: 'Beethoven', youtube: 'lJpSqC86vaw' },
-  { majorWork: '', selection: 'Minute Waltz', composer: 'Chopin', youtube: 'YwAAosTb9O4' },
-  { majorWork: 'Lakmé', selection: 'Flower Duet', composer: 'Delibes', youtube: 'C1ZL5AxmK_A' },
-  { majorWork: '', selection: 'El Grillo', composer: 'des Prez', youtube: 'O_EsMD6oDvI' },
-  { majorWork: 'Estancia Suite', selection: 'Malambo', composer: 'Ginastera', youtube: '6bz9qXIgp-I' },
-  { majorWork: '', selection: 'Sixty Minutes Polka', composer: 'Deutscher', youtube: 'Fx4MKh0vNyY' },
-  { majorWork: 'Symphony No. 94, "Surprise"', selection: 'Movement 2', composer: 'Haydn', youtube: 'lLjwkamp3lI' },
-  { majorWork: 'Così fan tutte', selection: 'Overture', composer: 'Mozart', youtube: '9-RkOrzMJMI' },
-  { majorWork: 'Madama Butterfly', selection: 'Humming Chorus', composer: 'Puccini', youtube: '8-rKxGZSRKk' },
-  { majorWork: 'The Tale of Tsar Saltan', selection: 'Flight of the Bumblebee', composer: 'Rimsky-Korsakov', youtube: 'WFYaOyRPLBM' },
-  { majorWork: '', selection: 'Semper Fidelis', composer: 'Sousa', youtube: 'kqxvdAFKo4k' },
-  { majorWork: '', selection: 'Radetzky March', composer: 'J. Strauss, Sr.', youtube: 'eab_eFtTKFs' },
-  { majorWork: 'The Sleeping Beauty', selection: 'Waltz', composer: 'Tchaikovsky', youtube: '2Sb8WCPjPDs' },
-  { majorWork: 'Star Wars: Episode IV - A New Hope', selection: 'Cantina Band', composer: 'Williams', youtube: 'Ak0zy49qsHE' }
+  { majorWork: 'The Well-Tempered Clavier, Book 1', selection: 'Prelude No. 1', composer: 'Bach', youtube: '7ZNXBpO-uEo' },
+  { majorWork: 'Symphony No. 1', selection: 'Movement 3', composer: 'Beethoven', youtube: 'x-ILsPFUeAI'},
+  { majorWork: 'Carmen', selection: 'Toreador Song', composer: 'Bizet', youtube: 'g2ULycjl_g0' },
+  { majorWork: '', selection: 'Waltz in A-Flat Major', composer: 'Brahms', youtube: '6Oy0w7eLgRk' },
+  { majorWork: '', selection: "The Prince of Denmark's March", composer: 'Clarke', youtube: 'Va5ox4rh8WE' },
+  { majorWork: '', selection: 'Clair de Lune', composer: 'Debussy', youtube: 'WKU8DJzipW4' },
+  { majorWork: 'Pomp and Circumstance', selection: 'March No. 1', composer: 'Elgar', youtube: 'moL4MkJ-aLk' },
+  { majorWork: '', selection: 'Take the "A" Train', composer: 'Ellington/Strayhorn', youtube: 'r2G1fKYFgVU' },
+  { majorWork: '', selection: 'O la, o che bon eccho (Echo Song)', composer: 'Lassus', youtube: 'Wyo43D6NHII' },
+  { majorWork: 'The Magic Flute', selection: 'Der Vogelfänger bin ich ja', composer: 'Mozart', youtube: 'cK0y0hH1Kyk' },
+  { majorWork: 'Pictures at an Exhibition', selection: 'Promenage', composer: 'Mussorgsky', youtube: '_5r8sa863Ts' },
+  { majorWork: 'Symphony No. 1', selection: 'Movement 4. Finale', composer: 'Price', youtube: '5t5nMxqxTO4' },
+  { majorWork: 'Armenian Dances (Part 1)', selection: 'Gna, Gna (Go, Go)', composer: 'Reed, Alfred', youtube: 'KNrGTScz8jk' },
+  { majorWork: 'The Barber of Seville', selection: 'Zitti, zitti, piano, piano', composer: 'Rossini', youtube: 'jLh8DiXQDGk' },
+  { majorWork: 'Requiem', selection: 'Dies Irae', composer: 'Verdi', youtube: 'CUGMZlvrR4c' },
+  { majorWork: 'The Four Seasons', selection: 'Autumn, Movement 3', composer: 'Vivaldi', youtube: 'PapzGRO9edU' }
 ];
+
+// const MUSIC_MEMORY_PIECES_2023 = [
+//   { majorWork: 'Orchestral Suite No. 2', selection: 'Badinerie', composer: 'Bach', youtube: '4ufehp7gULA' },
+//   { majorWork: 'Hungarian Sketches', selection: 'Bear Dance', composer: 'Bartók', youtube: 'vJkWrisEAtI'},
+//   { majorWork: 'Piano Sonata No. 8, "Pathétique"', selection: 'Movement 3', composer: 'Beethoven', youtube: 'lJpSqC86vaw' },
+//   { majorWork: '', selection: 'Minute Waltz', composer: 'Chopin', youtube: 'YwAAosTb9O4' },
+//   { majorWork: 'Lakmé', selection: 'Flower Duet', composer: 'Delibes', youtube: 'C1ZL5AxmK_A' },
+//   { majorWork: '', selection: 'El Grillo', composer: 'des Prez', youtube: 'O_EsMD6oDvI' },
+//   { majorWork: 'Estancia Suite', selection: 'Malambo', composer: 'Ginastera', youtube: '6bz9qXIgp-I' },
+//   { majorWork: '', selection: 'Sixty Minutes Polka', composer: 'Deutscher', youtube: 'Fx4MKh0vNyY' },
+//   { majorWork: 'Symphony No. 94, "Surprise"', selection: 'Movement 2', composer: 'Haydn', youtube: 'lLjwkamp3lI' },
+//   { majorWork: 'Così fan tutte', selection: 'Overture', composer: 'Mozart', youtube: '9-RkOrzMJMI' },
+//   { majorWork: 'Madama Butterfly', selection: 'Humming Chorus', composer: 'Puccini', youtube: '8-rKxGZSRKk' },
+//   { majorWork: 'The Tale of Tsar Saltan', selection: 'Flight of the Bumblebee', composer: 'Rimsky-Korsakov', youtube: 'WFYaOyRPLBM' },
+//   { majorWork: '', selection: 'Semper Fidelis', composer: 'Sousa', youtube: 'kqxvdAFKo4k' },
+//   { majorWork: '', selection: 'Radetzky March', composer: 'J. Strauss, Sr.', youtube: 'eab_eFtTKFs' },
+//   { majorWork: 'The Sleeping Beauty', selection: 'Waltz', composer: 'Tchaikovsky', youtube: '2Sb8WCPjPDs' },
+//   { majorWork: 'Star Wars: Episode IV - A New Hope', selection: 'Cantina Band', composer: 'Williams', youtube: 'Ak0zy49qsHE' }
+// ];
 
 // const MUSIC_MEMORY_PIECES_2022 = [
 //   { majorWork: 'Toccata and Fugue in d minor', selection: 'Toccata', composer: 'Bach', youtube: 'ho9rZjlsyYY' },
