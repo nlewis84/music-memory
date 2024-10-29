@@ -237,6 +237,7 @@ class App extends React.Component {
               justifyContent="center"
               alignItems="center"
               spacing={5}
+              width={"75%"}
             >
               <img className="image" src={item[0].url} alt="cat gif" />
               <Typography
@@ -584,6 +585,7 @@ class App extends React.Component {
             justifyContent="center"
             alignItems="center"
             spacing={5}
+            width={"75%"}
           >
             <img className="image" src={item[0].url} alt="cat gif" />
             <Typography
