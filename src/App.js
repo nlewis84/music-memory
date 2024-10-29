@@ -239,6 +239,7 @@ class App extends React.Component {
               spacing={5}
               width={"75%"}
             >
+              {/* Todo: github universe? */}
               <img className="image" src={item[0].url} alt="cat gif" />
               <Typography
                 variant="h4"
