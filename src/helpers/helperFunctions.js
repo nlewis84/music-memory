@@ -1,19 +1,23 @@
 import ReactGA from 'react-ga';
 import MUSIC_MEMORY_PIECES from './musicSetup';
 
-function overlay(boolean) {
+function overlay(isCorrect) {
   let reply = document.getElementById('reply');
   reply.innerHTML = guess;
-  boolean ? (reply.style.color = 'green') : (reply.style.color = 'red');
+  isCorrect ? (reply.style.color = 'green') : (reply.style.color = 'red');
   let overlaySelector = document.getElementById('overlay');
   overlaySelector.style.display = 'flex';
+
+  setTimeout(() => {
+    overlaySelector.style.display = 'none';
+    guess = '';
+  }, 5000);
 }
 
 let guess = '';
 
-// select a random item from the array MUSIC_MEMORY_PIECES
-let currentPiece =
-  MUSIC_MEMORY_PIECES[Math.floor(Math.random() * MUSIC_MEMORY_PIECES.length)];
+// Select a random item from the array MUSIC_MEMORY_PIECES
+let currentPiece = MUSIC_MEMORY_PIECES[Math.floor(Math.random() * MUSIC_MEMORY_PIECES.length)];
 
 function correctPiece(e, item) {
   if (item !== currentPiece) {
@@ -21,16 +25,17 @@ function correctPiece(e, item) {
       category: 'Wrong Guess',
       action: 'Clicked',
     });
-    guess = `Oh no! This was actually ${currentPiece?.majorWork || ''} ${
-      currentPiece.selection
-    } by ${currentPiece.composer}`;
+    guess = `Oh no! This was actually ${currentPiece?.majorWork || ''} ${currentPiece.selection} by ${currentPiece.composer}`;
     overlay(false);
 
-    return setTimeout(function () {
+    setTimeout(function () {
       guess = '';
       window.location.reload(true);
     }, 5000);
+
+    return false; // Return false for an incorrect answer
   }
+
   ReactGA.event({
     category: 'Correct Guess',
     action: 'Clicked',
@@ -38,10 +43,12 @@ function correctPiece(e, item) {
   guess = `GREAT JOB!!!`;
   overlay(true);
 
-  return setTimeout(function () {
+  setTimeout(function () {
     guess = '';
     window.location.reload(true);
   }, 5000);
+  
+  return true; // Return true for a correct answer
 }
 
 export { currentPiece, correctPiece };

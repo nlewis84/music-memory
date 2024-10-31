@@ -1,6 +1,6 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import ReactGA from 'react-ga';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import ReactGA from "react-ga";
 import {
   Box,
   Card,
@@ -13,23 +13,43 @@ import {
   Stack,
   Tooltip,
   Typography,
-} from '@mui/material';
-import { isMobile } from 'react-device-detect';
-import { currentPiece, correctPiece } from './helpers/helperFunctions';
-import MUSIC_MEMORY_PIECES from './helpers/musicSetup';
-import StyledYouTube from './helpers/styledYouTube';
+} from "@mui/material";
+import { isMobile } from "react-device-detect";
+import { currentPiece, correctPiece } from "./helpers/helperFunctions";
+import MUSIC_MEMORY_PIECES from "./helpers/musicSetup";
+import StyledYouTube from "./helpers/styledYouTube";
 
 function App() {
   const [item, setItem] = useState([]);
   const [DataisLoaded, setDataisLoaded] = useState(false);
+  const [correctCount, setCorrectCount] = useState(
+    () => parseInt(localStorage.getItem("correctCount")) || 0
+  );
+  const [incorrectCount, setIncorrectCount] = useState(
+    () => parseInt(localStorage.getItem("incorrectCount")) || 0
+  );
+
+  const handleCardClick = (index, item) => {
+    const isCorrect = correctPiece(null, item); // Adjust the return value of `correctPiece` if necessary
+
+    if (isCorrect) {
+      const newCorrectCount = correctCount + 1;
+      setCorrectCount(newCorrectCount);
+      localStorage.setItem("correctCount", newCorrectCount); // Save to localStorage
+    } else {
+      const newIncorrectCount = incorrectCount + 1;
+      setIncorrectCount(newIncorrectCount);
+      localStorage.setItem("incorrectCount", newIncorrectCount); // Save to localStorage
+    }
+  };
 
   useEffect(() => {
     fetch(
-      'https://api.thecatapi.com/v1/images/search?mime_types=gif&?size=small&?limit=1',
+      "https://api.thecatapi.com/v1/images/search?mime_types=gif&?size=small&?limit=1",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'x-api-key': process.env.REACT_APP_CAT_API_KEY,
+          "x-api-key": process.env.REACT_APP_CAT_API_KEY,
         },
       }
     )
@@ -46,7 +66,7 @@ function App() {
         <Paper
           id="overlay"
           className="overlay"
-          sx={{ display: 'none', backgroundColor: '#000000ee' }}
+          sx={{ display: "none", backgroundColor: "#000000ee" }}
           component={Stack}
           direction="column"
           justifyContent="center"
@@ -63,9 +83,9 @@ function App() {
             <Typography
               variant="h4"
               sx={{
-                fontSize: 'h4.fontSize',
-                fontWeight: 'bold',
-                textAlign: 'center',
+                fontSize: "h4.fontSize",
+                fontWeight: "bold",
+                textAlign: "center",
               }}
               id="reply"
             >
@@ -76,20 +96,20 @@ function App() {
         <Container sx={{ p: 5 }}>
           <Typography
             variant="h1"
-            sx={{ fontWeight: 'bold', textAlign: 'center' }}
+            sx={{ fontWeight: "bold", textAlign: "center" }}
           >
             Texas UIL 3rd-6th Grade
           </Typography>
-          <Typography variant="h2" sx={{ textAlign: 'center' }}>
+          <Typography variant="h2" sx={{ textAlign: "center" }}>
             Music Memory Game
           </Typography>
           <Typography
             variant="body1"
             sx={{
-              fontSize: 'h6.fontSize',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              color: 'text.secondary',
+              fontSize: "h6.fontSize",
+              fontWeight: "bold",
+              textAlign: "center",
+              color: "text.secondary",
               mt: 2,
             }}
           >
@@ -97,17 +117,17 @@ function App() {
           </Typography>
           <Container
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: 'primary.dark',
-              borderRadius: '50%',
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "primary.dark",
+              borderRadius: "50%",
               height: 80,
               width: 80,
-              ':hover': {
+              ":hover": {
                 boxShadow: 10,
               },
-              ':active': { boxShadow: 0 },
+              ":active": { boxShadow: 0 },
             }}
             onClick={() => window.location.reload()}
           >
@@ -166,31 +186,31 @@ function App() {
                 <Card
                   key={i}
                   sx={{
-                    backgroundColor: 'primary.dark',
+                    backgroundColor: "primary.dark",
                     borderRadius: 2,
                     height: 180,
                     width: 180,
-                    ':hover': {
+                    ":hover": {
                       boxShadow: 10,
                     },
                   }}
                   variant="outlined"
-                  style={{ textDecoration: 'none' }}
+                  style={{ textDecoration: "none" }}
                 >
                   <CardContent>
                     <Typography
                       variant="body1"
                       sx={{
-                        color: 'text.tertiary',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
+                        color: "text.tertiary",
+                        fontWeight: "bold",
+                        textAlign: "center",
                       }}
                     >
                       <Skeleton animation="wave" />
                     </Typography>
                     <Typography
                       variant="body1"
-                      sx={{ color: 'text.disabled', textAlign: 'center' }}
+                      sx={{ color: "text.disabled", textAlign: "center" }}
                     >
                       <Skeleton animation="wave" />
                     </Typography>
@@ -204,14 +224,13 @@ function App() {
     );
   }
 
-
   if (isMobile) {
     return (
       <>
         <Paper
           id="overlay"
           className="overlay"
-          sx={{ display: 'none', backgroundColor: '#000000ee' }}
+          sx={{ display: "none", backgroundColor: "#000000ee" }}
           component={Stack}
           direction="column"
           justifyContent="center"
@@ -225,15 +244,15 @@ function App() {
             alignItems="center"
             spacing={5}
             width={"75%"}
-            height={"75%"}
+            maxHeight={"75%"}
           >
             <img className="image" src={item[0].url} alt="cat gif" />
             <Typography
               variant="h4"
               sx={{
-                fontSize: 'h4.fontSize',
-                fontWeight: 'bold',
-                textAlign: 'center',
+                fontSize: "h4.fontSize",
+                fontWeight: "bold",
+                textAlign: "center",
               }}
               id="reply"
             >
@@ -244,35 +263,67 @@ function App() {
         <Container sx={{ p: 5 }}>
           <Typography
             variant="h2"
-            sx={{ fontWeight: 'bold', textAlign: 'center' }}
+            sx={{ fontWeight: "bold", textAlign: "center" }}
           >
             Texas UIL 3rd-6th Grade
           </Typography>
-          <Typography variant="h3" sx={{ textAlign: 'center' }}>
+          <Typography variant="h3" sx={{ textAlign: "center" }}>
             Music Memory Game
           </Typography>
           <div
             style={{
-              display: 'grid',
-              placeItems: 'top',
-              width: '300px',
-              height: '200px',
-              margin: '0 auto',
+              display: "grid",
+              placeItems: "top",
+              width: "300px",
+              height: "200px",
+              margin: "0 auto",
             }}
           >
             <div
               style={{
-                gridArea: 'inner-div',
+                gridArea: "inner-div",
                 zIndex: 2,
-                background: '#E1E1E1',
-                height: '50px',
-                width: '300px',
+                background: "#E1E1E1",
+                height: "50px",
+                width: "300px",
               }}
             />
-            <div style={{ gridArea: 'inner-div', zIndex: 1 }}>
+            <div style={{ gridArea: "inner-div", zIndex: 1 }}>
               {StyledYouTube(currentPiece.youtube, true)}
             </div>
           </div>
+
+          {/* Styled Counters */}
+          <Box
+            sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 4 }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                backgroundColor: "#d4edda",
+                color: "#155724",
+                border: "1px solid #c3e6cb",
+                borderRadius: "4px",
+                padding: "5px 15px",
+                fontWeight: "bold",
+              }}
+            >
+              Correct Answers: {correctCount}
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                backgroundColor: "#f8d7da",
+                color: "#721c24",
+                border: "1px solid #f5c6cb",
+                borderRadius: "4px",
+                padding: "5px 15px",
+                fontWeight: "bold",
+              }}
+            >
+              Incorrect Answers: {incorrectCount}
+            </Typography>
+          </Box>
 
           <Container>
             <Grid
@@ -287,18 +338,18 @@ function App() {
                   <Card
                     key={i}
                     sx={{
-                      backgroundColor: 'primary.dark',
+                      backgroundColor: "primary.dark",
                       borderRadius: 2,
                       height: 180,
                       width: 180,
-                      ':hover': {
+                      ":hover": {
                         boxShadow: 10,
                       },
-                      ':active': { boxShadow: 0 },
+                      ":active": { boxShadow: 0 },
                     }}
                     variant="outlined"
-                    style={{ textDecoration: 'none' }}
-                    onClick={(e) => correctPiece(e, item)}
+                    style={{ textDecoration: "none" }}
+                    onClick={() => handleCardClick(i, item)}
                   >
                     <CardContent>
                       {item.majorWork ? (
@@ -306,9 +357,9 @@ function App() {
                           <Typography
                             variant="h6"
                             sx={{
-                              color: 'text.tertiary',
-                              fontWeight: 'bold',
-                              textAlign: 'center',
+                              color: "text.tertiary",
+                              fontWeight: "bold",
+                              textAlign: "center",
                             }}
                           >
                             {item.majorWork}
@@ -316,9 +367,9 @@ function App() {
                           <Typography
                             variant="body1"
                             sx={{
-                              color: 'text.primary',
-                              fontWeight: 'regular',
-                              textAlign: 'center',
+                              color: "text.primary",
+                              fontWeight: "regular",
+                              textAlign: "center",
                             }}
                           >
                             {item.selection}
@@ -328,9 +379,9 @@ function App() {
                         <Typography
                           variant="body1"
                           sx={{
-                            color: 'text.primary',
-                            fontWeight: 'regular',
-                            textAlign: 'center',
+                            color: "text.primary",
+                            fontWeight: "regular",
+                            textAlign: "center",
                           }}
                         >
                           {item.selection}
@@ -338,7 +389,7 @@ function App() {
                       )}
                       <Typography
                         variant="body1"
-                        sx={{ color: 'text.disabled', textAlign: 'center' }}
+                        sx={{ color: "text.disabled", textAlign: "center" }}
                       >
                         {item.composer}
                       </Typography>
@@ -351,8 +402,8 @@ function App() {
         </Container>
         <Stack
           sx={{
-            position: 'fixed',
-            width: '100px',
+            position: "fixed",
+            width: "100px",
             bottom: 0,
             left: 0,
             m: 2,
@@ -375,10 +426,10 @@ function App() {
                   aria-label="about"
                   onClick={() => {
                     ReactGA.event({
-                      category: 'About Me',
-                      action: 'Clicked',
+                      category: "About Me",
+                      action: "Clicked",
                     });
-                    window.open('https://nathanlewis.dev/about');
+                    window.open("https://nathanlewis.dev/about");
                   }}
                 >
                   <svg
@@ -441,8 +492,8 @@ function App() {
         </Stack>
         <Stack
           sx={{
-            position: 'fixed',
-            width: '100px',
+            position: "fixed",
+            width: "100px",
             bottom: 0,
             right: 0,
             m: 2,
@@ -465,12 +516,10 @@ function App() {
                   aria-label="add"
                   onClick={() => {
                     ReactGA.event({
-                      category: 'Buy me a coffee',
-                      action: 'Clicked',
+                      category: "Buy me a coffee",
+                      action: "Clicked",
                     });
-                    window.open(
-                      'https://account.venmo.com/u/Nathan-Lewis-35'
-                    );
+                    window.open("https://account.venmo.com/u/Nathan-Lewis-35");
                   }}
                 >
                   <svg
@@ -560,7 +609,7 @@ function App() {
       <Paper
         id="overlay"
         className="overlay"
-        sx={{ display: 'none', backgroundColor: '#000000ee' }}
+        sx={{ display: "none", backgroundColor: "#000000ee" }}
         component={Stack}
         direction="column"
         justifyContent="center"
@@ -574,15 +623,15 @@ function App() {
           alignItems="center"
           spacing={5}
           width={"75%"}
-          height={"75%"}
+          maxHeight={"75%"}
         >
           <img className="image" src={item[0]?.url} alt="cat gif" />
           <Typography
             variant="h4"
             sx={{
-              fontSize: 'h4.fontSize',
-              fontWeight: 'bold',
-              textAlign: 'center',
+              fontSize: "h4.fontSize",
+              fontWeight: "bold",
+              textAlign: "center",
             }}
             id="reply"
           >
@@ -593,44 +642,46 @@ function App() {
       <Container sx={{ p: 5 }}>
         <Typography
           variant="h1"
-          sx={{ fontWeight: 'bold', textAlign: 'center' }}
+          sx={{ fontWeight: "bold", textAlign: "center" }}
         >
           Texas UIL 3rd-6th Grade
         </Typography>
-        <Typography variant="h2" sx={{ textAlign: 'center' }}>
+        <Typography variant="h2" sx={{ textAlign: "center" }}>
           Music Memory Game
         </Typography>
         <Typography
           variant="body1"
           sx={{
-            fontSize: 'h6.fontSize',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            color: 'text.secondary',
+            fontSize: "h6.fontSize",
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "text.secondary",
             mt: 2,
           }}
         >
-          No sound? Click this button
+          Reset the game or no sound? Click this button
         </Typography>
         <Container
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'primary.dark',
-            borderRadius: '50%',
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "primary.dark",
+            borderRadius: "50%",
             height: 80,
             width: 80,
-            ':hover': {
+            ":hover": {
               boxShadow: 10,
             },
-            ':active': { boxShadow: 0 },
+            ":active": { boxShadow: 0 },
           }}
           onClick={() => {
             ReactGA.event({
-              category: 'No Sound Button',
-              action: 'Clicked',
+              category: "No Sound Button",
+              action: "Clicked",
             });
+            localStorage.removeItem("correctCount");
+            localStorage.removeItem("incorrectCount");
             window.location.reload();
           }}
         >
@@ -677,6 +728,37 @@ function App() {
             ></path>
           </svg>
         </Container>
+
+        {/* Styled Counters */}
+        <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 4 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              backgroundColor: "#d4edda",
+              color: "#155724",
+              border: "1px solid #c3e6cb",
+              borderRadius: "4px",
+              padding: "5px 15px",
+              fontWeight: "bold",
+            }}
+          >
+            Correct Answers: {correctCount}
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              backgroundColor: "#f8d7da",
+              color: "#721c24",
+              border: "1px solid #f5c6cb",
+              borderRadius: "4px",
+              padding: "5px 15px",
+              fontWeight: "bold",
+            }}
+          >
+            Incorrect Answers: {incorrectCount}
+          </Typography>
+        </Box>
+
         <Container>
           <Grid
             container
@@ -689,18 +771,18 @@ function App() {
               <Card
                 key={i}
                 sx={{
-                  backgroundColor: 'primary.dark',
+                  backgroundColor: "primary.dark",
                   borderRadius: 2,
                   height: 180,
                   width: 180,
-                  ':hover': {
+                  ":hover": {
                     boxShadow: 10,
                   },
-                  ':active': { boxShadow: 0 },
+                  ":active": { boxShadow: 0 },
                 }}
                 variant="outlined"
-                style={{ textDecoration: 'none' }}
-                onClick={(e) => correctPiece(e, item)}
+                style={{ textDecoration: "none" }}
+                onClick={() => handleCardClick(i, item)}
               >
                 <CardContent>
                   {item.majorWork ? (
@@ -708,9 +790,9 @@ function App() {
                       <Typography
                         variant="h6"
                         sx={{
-                          color: 'text.tertiary',
-                          fontWeight: 'bold',
-                          textAlign: 'center',
+                          color: "text.tertiary",
+                          fontWeight: "bold",
+                          textAlign: "center",
                         }}
                       >
                         {item.majorWork}
@@ -718,9 +800,9 @@ function App() {
                       <Typography
                         variant="body1"
                         sx={{
-                          color: 'text.primary',
-                          fontWeight: 'regular',
-                          textAlign: 'center',
+                          color: "text.primary",
+                          fontWeight: "regular",
+                          textAlign: "center",
                         }}
                       >
                         {item.selection}
@@ -730,9 +812,9 @@ function App() {
                     <Typography
                       variant="body1"
                       sx={{
-                        color: 'text.primary',
-                        fontWeight: 'regular',
-                        textAlign: 'center',
+                        color: "text.primary",
+                        fontWeight: "regular",
+                        textAlign: "center",
                       }}
                     >
                       {item.selection}
@@ -740,7 +822,7 @@ function App() {
                   )}
                   <Typography
                     variant="body1"
-                    sx={{ color: 'text.disabled', textAlign: 'center' }}
+                    sx={{ color: "text.disabled", textAlign: "center" }}
                   >
                     {item.composer}
                   </Typography>
