@@ -37,19 +37,28 @@ function App() {
     () => parseInt(localStorage.getItem("incorrectCount")) || 0
   );
 
-  const handleCardClick = (index, item) => {
-    const isCorrect = correctPiece(null, item); // Adjust the return value of `correctPiece` if necessary
+  function updateCount(type, currentCount, setCount) {
+    const newCount = currentCount + 1;
+    setCount(newCount);
+    localStorage.setItem(type, newCount);
+  }
+  
+  function resetCounts(setCorrectCount, setIncorrectCount) {
+    localStorage.removeItem("correctCount");
+    localStorage.removeItem("incorrectCount");
+    setCorrectCount(0);
+    setIncorrectCount(0);
+  }  
 
+  const handleCardClick = (index, item) => {
+    const isCorrect = correctPiece(null, item);
+  
     if (isCorrect) {
-      const newCorrectCount = correctCount + 1;
-      setCorrectCount(newCorrectCount);
-      localStorage.setItem("correctCount", newCorrectCount); // Save to localStorage
+      updateCount("correctCount", correctCount, setCorrectCount);
     } else {
-      const newIncorrectCount = incorrectCount + 1;
-      setIncorrectCount(newIncorrectCount);
-      localStorage.setItem("incorrectCount", newIncorrectCount); // Save to localStorage
+      updateCount("incorrectCount", incorrectCount, setIncorrectCount);
     }
-  };
+  };  
 
   const handleBuyMeACoffeeClick = () => {
     ReactGA.event({
@@ -72,10 +81,10 @@ function App() {
       category: "No Sound Button",
       action: "Clicked",
     });
-    localStorage.removeItem("correctCount");
-    localStorage.removeItem("incorrectCount");
+    resetCounts(setCorrectCount, setIncorrectCount);
     window.location.reload();
   };
+  
 
   const handleReload = () => {
     window.location.reload();
