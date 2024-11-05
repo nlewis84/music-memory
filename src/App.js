@@ -18,6 +18,7 @@ import { isMobile } from "react-device-detect";
 import { currentPiece, correctPiece } from "./helpers/helperFunctions";
 import MUSIC_MEMORY_PIECES from "./helpers/musicSetup";
 import StyledYouTube from "./helpers/styledYouTube";
+import GameCard from "./components/GameCard";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -333,70 +334,9 @@ function App() {
               alignItems="center"
               justifyContent="center"
             >
-              {MUSIC_MEMORY_PIECES.map((item, i) => {
-                return (
-                  <Card
-                    key={i}
-                    sx={{
-                      backgroundColor: "primary.dark",
-                      borderRadius: 2,
-                      height: 180,
-                      width: 180,
-                      ":hover": {
-                        boxShadow: 10,
-                      },
-                      ":active": { boxShadow: 0 },
-                    }}
-                    variant="outlined"
-                    style={{ textDecoration: "none" }}
-                    onClick={() => handleCardClick(i, item)}
-                  >
-                    <CardContent>
-                      {item.majorWork ? (
-                        <>
-                          <Typography
-                            variant="h6"
-                            sx={{
-                              color: "text.tertiary",
-                              fontWeight: "bold",
-                              textAlign: "center",
-                            }}
-                          >
-                            {item.majorWork}
-                          </Typography>
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              color: "text.primary",
-                              fontWeight: "regular",
-                              textAlign: "center",
-                            }}
-                          >
-                            {item.selection}
-                          </Typography>
-                        </>
-                      ) : (
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            color: "text.primary",
-                            fontWeight: "regular",
-                            textAlign: "center",
-                          }}
-                        >
-                          {item.selection}
-                        </Typography>
-                      )}
-                      <Typography
-                        variant="body1"
-                        sx={{ color: "text.disabled", textAlign: "center" }}
-                      >
-                        {item.composer}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+              {MUSIC_MEMORY_PIECES.map((item, i) => (
+                <GameCard key={i} item={item} onClick={() => handleCardClick(i, item)} />
+              ))}
             </Grid>
           </Container>
         </Container>
@@ -769,66 +709,7 @@ function App() {
             justifyContent="center"
           >
             {MUSIC_MEMORY_PIECES.map((item, i) => (
-              <Card
-                key={i}
-                sx={{
-                  backgroundColor: "primary.dark",
-                  borderRadius: 2,
-                  height: 180,
-                  width: 180,
-                  ":hover": {
-                    boxShadow: 10,
-                  },
-                  ":active": { boxShadow: 0 },
-                }}
-                variant="outlined"
-                style={{ textDecoration: "none" }}
-                onClick={() => handleCardClick(i, item)}
-              >
-                <CardContent>
-                  {item.majorWork ? (
-                    <>
-                      <Typography
-                        variant="h6"
-                        sx={{
-                          color: "text.tertiary",
-                          fontWeight: "bold",
-                          textAlign: "center",
-                        }}
-                      >
-                        {item.majorWork}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: "text.primary",
-                          fontWeight: "regular",
-                          textAlign: "center",
-                        }}
-                      >
-                        {item.selection}
-                      </Typography>
-                    </>
-                  ) : (
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: "text.primary",
-                        fontWeight: "regular",
-                        textAlign: "center",
-                      }}
-                    >
-                      {item.selection}
-                    </Typography>
-                  )}
-                  <Typography
-                    variant="body1"
-                    sx={{ color: "text.disabled", textAlign: "center" }}
-                  >
-                    {item.composer}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <GameCard key={i} item={item} onClick={() => handleCardClick(i, item)} />
             ))}
           </Grid>
           {StyledYouTube(currentPiece.youtube, false)}
