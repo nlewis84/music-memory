@@ -243,7 +243,7 @@ function App() {
             justifyContent="center"
             alignItems="center"
             spacing={5}
-            width={"75%"}
+            maxWidth={"75%"}
             maxHeight={"75%"}
           >
             <img className="image" src={item[0].url} alt="cat gif" />
@@ -622,7 +622,7 @@ function App() {
           justifyContent="center"
           alignItems="center"
           spacing={5}
-          width={"75%"}
+          maxWidth={"75%"}
           maxHeight={"75%"}
         >
           <img className="image" src={item[0]?.url} alt="cat gif" />
@@ -659,7 +659,7 @@ function App() {
             mt: 2,
           }}
         >
-          Reset the game or no sound? Click this button
+          No sound or need to reset the game? Click this button
         </Typography>
         <Container
           sx={{
