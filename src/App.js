@@ -23,10 +23,13 @@ import WaveIcon from "./components/WaveIcon";
 import CoffeeIcon from "./components/CoffeeIcon";
 import RefreshIcon from "./components/RefreshIcon";
 import ScoreCounter from "./components/ScoreCounter";
+import useFetchCatImage from "./hooks/useFetchCatImage";
 
 function App() {
-  const [item, setItem] = useState([]);
-  const [DataisLoaded, setDataisLoaded] = useState(false);
+  const { item, dataIsLoaded } = useFetchCatImage(
+    process.env.REACT_APP_CAT_API_KEY
+  );
+
   const [correctCount, setCorrectCount] = useState(
     () => parseInt(localStorage.getItem("correctCount")) || 0
   );
@@ -78,24 +81,7 @@ function App() {
     window.location.reload();
   };
 
-  useEffect(() => {
-    fetch(
-      "https://api.thecatapi.com/v1/images/search?mime_types=gif&?size=small&?limit=1",
-      {
-        method: "GET",
-        headers: {
-          "x-api-key": process.env.REACT_APP_CAT_API_KEY,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        setItem(json);
-        setDataisLoaded(true);
-      });
-  }, []);
-
-  if (!DataisLoaded || !currentPiece?.youtube) {
+  if (!dataIsLoaded || !currentPiece?.youtube) {
     return (
       <>
         <OverlayComponent imageUrl={undefined} text="placeholder" />
