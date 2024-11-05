@@ -36,6 +36,8 @@ function App() {
   const [incorrectCount, setIncorrectCount] = useState(
     () => parseInt(localStorage.getItem("incorrectCount")) || 0
   );
+  const [resetTrigger, setResetTrigger] = useState(0);
+
 
   function updateCount(type, currentCount, setCount) {
     const newCount = currentCount + 1;
@@ -43,12 +45,13 @@ function App() {
     localStorage.setItem(type, newCount);
   }
   
-  function resetCounts(setCorrectCount, setIncorrectCount) {
+  function resetCounts() {
     localStorage.removeItem("correctCount");
     localStorage.removeItem("incorrectCount");
     setCorrectCount(0);
     setIncorrectCount(0);
-  }  
+    setResetTrigger((prev) => prev + 1); // Trigger re-render
+  }
 
   const handleCardClick = (index, item) => {
     const isCorrect = correctPiece(null, item);
@@ -81,13 +84,12 @@ function App() {
       category: "No Sound Button",
       action: "Clicked",
     });
-    resetCounts(setCorrectCount, setIncorrectCount);
-    window.location.reload();
+    resetCounts();
   };
   
 
   const handleReload = () => {
-    window.location.reload();
+    setResetTrigger((prev) => prev + 1); // Trigger re-render
   };
 
   if (!dataIsLoaded || !currentPiece?.youtube) {
