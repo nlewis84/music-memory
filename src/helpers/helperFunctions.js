@@ -19,7 +19,7 @@ let guess = '';
 // Select a random item from the array MUSIC_MEMORY_PIECES
 let currentPiece = MUSIC_MEMORY_PIECES[Math.floor(Math.random() * MUSIC_MEMORY_PIECES.length)];
 
-function correctPiece(e, item) {
+function correctPiece(item) {
   if (item !== currentPiece) {
     ReactGA.event({
       category: 'Wrong Guess',

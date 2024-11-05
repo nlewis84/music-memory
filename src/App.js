@@ -54,7 +54,7 @@ function App() {
   }
 
   const handleCardClick = (index, item) => {
-    const isCorrect = correctPiece(null, item);
+    const isCorrect = correctPiece(item);
   
     if (isCorrect) {
       updateCount("correctCount", correctCount, setCorrectCount);
