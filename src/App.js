@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
   Container,
-  Fab,
   Grid,
   Skeleton,
   Stack,
@@ -19,7 +18,10 @@ import MUSIC_MEMORY_PIECES from "./helpers/musicSetup";
 import StyledYouTube from "./helpers/styledYouTube";
 import GameCard from "./components/GameCard";
 import OverlayComponent from "./components/OverlayComponent";
-
+import ActionButton from "./components/ActionButton";
+import WaveIcon from "./components/WaveIcon";
+import CoffeeIcon from "./components/CoffeeIcon";
+import RefreshIcon from "./components/RefreshIcon";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -137,48 +139,7 @@ function App() {
             }}
             onClick={handleReload}
           >
-            {/* SVG Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="192"
-              height="192"
-              fill="#ffffff"
-              viewBox="0 0 256 256"
-            >
-              <rect width="256" height="256" fill="none"></rect>
-              <polyline
-                points="176.2 99.7 224.2 99.7 224.2 51.7"
-                fill="none"
-                stroke="#ffffff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="24"
-              ></polyline>
-              <path
-                d="M65.8,65.8a87.9,87.9,0,0,1,124.4,0l34,33.9"
-                fill="none"
-                stroke="#ffffff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="24"
-              ></path>
-              <polyline
-                points="79.8 156.3 31.8 156.3 31.8 204.3"
-                fill="none"
-                stroke="#ffffff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="24"
-              ></polyline>
-              <path
-                d="M190.2,190.2a87.9,87.9,0,0,1-124.4,0l-34-33.9"
-                fill="none"
-                stroke="#ffffff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="24"
-              ></path>
-            </svg>
+            <RefreshIcon />
           </Container>
           <Container>
             <Grid
@@ -338,65 +299,9 @@ function App() {
           >
             <Grid item>
               <Tooltip title="About me">
-                <Fab
-                  color="primary"
-                  aria-label="about"
-                  onClick={handleAboutMeClick}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    fill="#ffffff"
-                    viewBox="0 0 256 256"
-                  >
-                    <rect width="256" height="256" fill="none"></rect>
-                    <path
-                      d="M158.6,93.3a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l-16-27.7A20,20,0,0,1,86,47.5l8,13.9a20,20,0,0,1,34.6-20Z"
-                      opacity="0.2"
-                    ></path>
-                    <path
-                      d="M94,61.4a20,20,0,0,1,34.6-20l30,51.9"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                    <path
-                      d="M67.4,95.2l-16-27.7A20,20,0,0,1,86,47.5l34,58.9"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                    <path
-                      d="M154,165.3a39.9,39.9,0,0,1,14.6-54.6l-10-17.4a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l22,38.1"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                    <path
-                      d="M81.1,240A110.3,110.3,0,0,1,48,204"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                    <path
-                      d="M176,31a51.7,51.7,0,0,1,45,26"
-                      fill="none"
-                      stroke="#ffffff"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                  </svg>
-                </Fab>
+                <ActionButton title="About me" onClick={handleAboutMeClick}>
+                  <WaveIcon />
+                </ActionButton>
               </Tooltip>
             </Grid>
           </Grid>
@@ -422,85 +327,12 @@ function App() {
           >
             <Grid item>
               <Tooltip title="Buy me a coffee!">
-                <Fab
-                  color="primary"
-                  aria-label="add"
+                <ActionButton
+                  title="Buy me a coffee!"
                   onClick={handleBuyMeACoffeeClick}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    fill="#000000"
-                    viewBox="0 0 256 256"
-                  >
-                    <rect width="48" height="48" fill="none"></rect>
-                    <path
-                      d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80Z"
-                      opacity="0.2"
-                    ></path>
-                    <line
-                      x1="88"
-                      y1="24"
-                      x2="88"
-                      y2="56"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></line>
-                    <line
-                      x1="120"
-                      y1="24"
-                      x2="120"
-                      y2="56"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></line>
-                    <line
-                      x1="152"
-                      y1="24"
-                      x2="152"
-                      y2="56"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></line>
-                    <line
-                      x1="32"
-                      y1="216"
-                      x2="208"
-                      y2="216"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></line>
-                    <path
-                      d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                    <path
-                      d="M208,88h0a32,32,0,0,1,32,32v8a32,32,0,0,1-32,32h-3.4"
-                      fill="none"
-                      stroke="#FFFFFF"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="16"
-                    ></path>
-                  </svg>
-                </Fab>
+                  <CoffeeIcon />
+                </ActionButton>
               </Tooltip>
             </Grid>
           </Grid>
@@ -668,65 +500,9 @@ function App() {
         >
           <Grid item>
             <Tooltip title="About me">
-              <Fab
-                color="primary"
-                aria-label="about"
-                onClick={handleAboutMeClick}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  fill="#ffffff"
-                  viewBox="0 0 256 256"
-                >
-                  <rect width="256" height="256" fill="none"></rect>
-                  <path
-                    d="M158.6,93.3a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l-16-27.7A20,20,0,0,1,86,47.5l8,13.9a20,20,0,0,1,34.6-20Z"
-                    opacity="0.2"
-                  ></path>
-                  <path
-                    d="M94,61.4a20,20,0,0,1,34.6-20l30,51.9"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                  <path
-                    d="M67.4,95.2l-16-27.7A20,20,0,0,1,86,47.5l34,58.9"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                  <path
-                    d="M154,165.3a39.9,39.9,0,0,1,14.6-54.6l-10-17.4a20,20,0,0,1,34.7-20l20,34.7A80,80,0,0,1,74.7,188l-42-72.8a20,20,0,0,1,34.7-20l22,38.1"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                  <path
-                    d="M81.1,240A110.3,110.3,0,0,1,48,204"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                  <path
-                    d="M176,31a51.7,51.7,0,0,1,45,26"
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                </svg>
-              </Fab>
+              <ActionButton title="About me" onClick={handleAboutMeClick}>
+                <WaveIcon />
+              </ActionButton>
             </Tooltip>
           </Grid>
         </Grid>
@@ -752,85 +528,12 @@ function App() {
         >
           <Grid item>
             <Tooltip title="Buy me a coffee!">
-              <Fab
-                color="primary"
-                aria-label="add"
+              <ActionButton
+                title="Buy me a coffee!"
                 onClick={handleBuyMeACoffeeClick}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  fill="#000000"
-                  viewBox="0 0 256 256"
-                >
-                  <rect width="48" height="48" fill="none"></rect>
-                  <path
-                    d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80Z"
-                    opacity="0.2"
-                  ></path>
-                  <line
-                    x1="88"
-                    y1="24"
-                    x2="88"
-                    y2="56"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></line>
-                  <line
-                    x1="120"
-                    y1="24"
-                    x2="120"
-                    y2="56"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></line>
-                  <line
-                    x1="152"
-                    y1="24"
-                    x2="152"
-                    y2="56"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></line>
-                  <line
-                    x1="32"
-                    y1="216"
-                    x2="208"
-                    y2="216"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></line>
-                  <path
-                    d="M83.3,216A88,88,0,0,1,32,136V88H208v48a88,88,0,0,1-51.3,80"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                  <path
-                    d="M208,88h0a32,32,0,0,1,32,32v8a32,32,0,0,1-32,32h-3.4"
-                    fill="none"
-                    stroke="#FFFFFF"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="16"
-                  ></path>
-                </svg>
-              </Fab>
+                <CoffeeIcon />
+              </ActionButton>
             </Tooltip>
           </Grid>
         </Grid>
