@@ -8,7 +8,6 @@ import {
   Container,
   Fab,
   Grid,
-  Paper,
   Skeleton,
   Stack,
   Tooltip,
@@ -19,6 +18,8 @@ import { currentPiece, correctPiece } from "./helpers/helperFunctions";
 import MUSIC_MEMORY_PIECES from "./helpers/musicSetup";
 import StyledYouTube from "./helpers/styledYouTube";
 import GameCard from "./components/GameCard";
+import OverlayComponent from "./components/OverlayComponent";
+
 
 function App() {
   const [item, setItem] = useState([]);
@@ -94,36 +95,7 @@ function App() {
   if (!DataisLoaded || !currentPiece?.youtube) {
     return (
       <>
-        <Paper
-          id="overlay"
-          className="overlay"
-          sx={{ display: "none", backgroundColor: "#000000ee" }}
-          component={Stack}
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          spacing={2}
-        >
-          <Box
-            component={Stack}
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            spacing={5}
-          >
-            <Typography
-              variant="h4"
-              sx={{
-                fontSize: "h4.fontSize",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-              id="reply"
-            >
-              placeholder
-            </Typography>
-          </Box>
-        </Paper>
+        <OverlayComponent imageUrl={undefined} text="placeholder" />
         <Container sx={{ p: 5 }}>
           <Typography
             variant="body1"
@@ -261,39 +233,7 @@ function App() {
   if (isMobile) {
     return (
       <>
-        <Paper
-          id="overlay"
-          className="overlay"
-          sx={{ display: "none", backgroundColor: "#000000ee" }}
-          component={Stack}
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          spacing={2}
-        >
-          <Box
-            component={Stack}
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            spacing={5}
-            maxWidth={"75%"}
-            maxHeight={"75%"}
-          >
-            <img className="image" src={item[0].url} alt="cat gif" />
-            <Typography
-              variant="h4"
-              sx={{
-                fontSize: "h4.fontSize",
-                fontWeight: "bold",
-                textAlign: "center",
-              }}
-              id="reply"
-            >
-              placeholder
-            </Typography>
-          </Box>
-        </Paper>
+        <OverlayComponent imageUrl={item[0]?.url} text="placeholder" />
         <Container sx={{ p: 5 }}>
           <Typography
             variant="h2"
@@ -571,39 +511,7 @@ function App() {
 
   return (
     <>
-      <Paper
-        id="overlay"
-        className="overlay"
-        sx={{ display: "none", backgroundColor: "#000000ee" }}
-        component={Stack}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}
-      >
-        <Box
-          component={Stack}
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          spacing={5}
-          maxWidth={"75%"}
-          maxHeight={"75%"}
-        >
-          <img className="image" src={item[0]?.url} alt="cat gif" />
-          <Typography
-            variant="h4"
-            sx={{
-              fontSize: "h4.fontSize",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-            id="reply"
-          >
-            placeholder
-          </Typography>
-        </Box>
-      </Paper>
+      <OverlayComponent imageUrl={item[0]?.url} text="placeholder" />
       <Container sx={{ p: 5 }}>
         <Typography
           variant="body1"
