@@ -22,6 +22,7 @@ import ActionButton from "./components/ActionButton";
 import WaveIcon from "./components/WaveIcon";
 import CoffeeIcon from "./components/CoffeeIcon";
 import RefreshIcon from "./components/RefreshIcon";
+import ScoreCounter from "./components/ScoreCounter";
 
 function App() {
   const [item, setItem] = useState([]);
@@ -232,32 +233,20 @@ function App() {
           <Box
             sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 4 }}
           >
-            <Typography
-              variant="h6"
-              sx={{
-                backgroundColor: "#d4edda",
-                color: "#155724",
-                border: "1px solid #c3e6cb",
-                borderRadius: "4px",
-                padding: "5px 15px",
-                fontWeight: "bold",
-              }}
-            >
-              Correct Answers: {correctCount}
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
-                backgroundColor: "#f8d7da",
-                color: "#721c24",
-                border: "1px solid #f5c6cb",
-                borderRadius: "4px",
-                padding: "5px 15px",
-                fontWeight: "bold",
-              }}
-            >
-              Incorrect Answers: {incorrectCount}
-            </Typography>
+            <ScoreCounter
+              label="Correct Answers"
+              count={correctCount}
+              backgroundColor="#d4edda"
+              textColor="#155724"
+              borderColor="#c3e6cb"
+            />
+            <ScoreCounter
+              label="Incorrect Answers"
+              count={incorrectCount}
+              backgroundColor="#f8d7da"
+              textColor="#721c24"
+              borderColor="#f5c6cb"
+            />
           </Box>
 
           <Container>
@@ -432,32 +421,20 @@ function App() {
 
         {/* Styled Counters */}
         <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 4 }}>
-          <Typography
-            variant="h6"
-            sx={{
-              backgroundColor: "#d4edda",
-              color: "#155724",
-              border: "1px solid #c3e6cb",
-              borderRadius: "4px",
-              padding: "5px 15px",
-              fontWeight: "bold",
-            }}
-          >
-            Correct Answers: {correctCount}
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              backgroundColor: "#f8d7da",
-              color: "#721c24",
-              border: "1px solid #f5c6cb",
-              borderRadius: "4px",
-              padding: "5px 15px",
-              fontWeight: "bold",
-            }}
-          >
-            Incorrect Answers: {incorrectCount}
-          </Typography>
+          <ScoreCounter
+            label="Correct Answers"
+            count={correctCount}
+            backgroundColor="#d4edda"
+            textColor="#155724"
+            borderColor="#c3e6cb"
+          />
+          <ScoreCounter
+            label="Incorrect Answers"
+            count={incorrectCount}
+            backgroundColor="#f8d7da"
+            textColor="#721c24"
+            borderColor="#f5c6cb"
+          />
         </Box>
 
         <Container>
