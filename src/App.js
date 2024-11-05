@@ -95,12 +95,12 @@ function App() {
         </Paper>
         <Container sx={{ p: 5 }}>
           <Typography
-            variant="h1"
+            variant="body1"
             sx={{ fontWeight: "bold", textAlign: "center" }}
           >
             Texas UIL 3rd-6th Grade
           </Typography>
-          <Typography variant="h2" sx={{ textAlign: "center" }}>
+          <Typography variant="h2" sx={{ fontWeight: "bold", textAlign: "center" }}>
             Music Memory Game
           </Typography>
           <Typography
@@ -641,12 +641,12 @@ function App() {
       </Paper>
       <Container sx={{ p: 5 }}>
         <Typography
-          variant="h1"
+          variant="body1"
           sx={{ fontWeight: "bold", textAlign: "center" }}
         >
           Texas UIL 3rd-6th Grade
         </Typography>
-        <Typography variant="h2" sx={{ textAlign: "center" }}>
+        <Typography variant="h2" sx={{ fontWeight: "bold", textAlign: "center" }}>
           Music Memory Game
         </Typography>
         <Typography
@@ -657,6 +657,7 @@ function App() {
             textAlign: "center",
             color: "text.secondary",
             mt: 2,
+            mb: 2,
           }}
         >
           No sound or need to reset the game? Click this button

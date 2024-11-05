@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 
 function StyledYouTube(id, mobile) {
   let array = [
-    0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7, 0.77, 0.82, 0.86,
+    0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7, 0.77, 0.82, 0.84,
   ];
   let randomTime = Math.floor(Math.random() * 13);
   let isUnMuted = true;
