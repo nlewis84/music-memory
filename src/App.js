@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactGA from "react-ga";
 import {
   Box,
@@ -9,6 +9,7 @@ import {
   Grid,
   Skeleton,
   Stack,
+  Switch,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -30,6 +31,9 @@ function App() {
     process.env.REACT_APP_CAT_API_KEY
   );
 
+  const [selectedGrade, setSelectedGrade] = useState(
+    () => localStorage.getItem("selectedGrade") || "3rd-6th"
+  );
   const [correctCount, setCorrectCount] = useState(
     () => parseInt(localStorage.getItem("correctCount")) || 0
   );
@@ -38,13 +42,26 @@ function App() {
   );
   const [resetTrigger, setResetTrigger] = useState(0);
 
+  // Toggle function
+  const handleToggleChange = () => {
+    const newGrade = selectedGrade === "3rd-6th" ? "2nd" : "3rd-6th";
+    setSelectedGrade(newGrade);
+    localStorage.setItem("selectedGrade", newGrade);
+  };
+
+  // Filter pieces based on selected grade
+  const filteredPieces = MUSIC_MEMORY_PIECES.filter((piece) =>
+    selectedGrade === "2nd"
+      ? piece.grade === "2"
+      : piece.grade === "all" || piece.grade === "2"
+  );
 
   function updateCount(type, currentCount, setCount) {
     const newCount = currentCount + 1;
     setCount(newCount);
     localStorage.setItem(type, newCount);
   }
-  
+
   function resetCounts() {
     localStorage.removeItem("correctCount");
     localStorage.removeItem("incorrectCount");
@@ -55,13 +72,13 @@ function App() {
 
   const handleCardClick = (index, item) => {
     const isCorrect = correctPiece(item);
-  
+
     if (isCorrect) {
       updateCount("correctCount", correctCount, setCorrectCount);
     } else {
       updateCount("incorrectCount", incorrectCount, setIncorrectCount);
     }
-  };  
+  };
 
   const handleBuyMeACoffeeClick = () => {
     ReactGA.event({
@@ -86,7 +103,6 @@ function App() {
     });
     resetCounts();
   };
-  
 
   const handleReload = () => {
     setResetTrigger((prev) => prev + 1); // Trigger re-render
@@ -101,7 +117,7 @@ function App() {
             variant="body1"
             sx={{ fontWeight: "bold", textAlign: "center" }}
           >
-            Texas UIL 3rd-6th Grade
+            Texas UIL Music Memory
           </Typography>
           <Typography
             variant="h2"
@@ -109,6 +125,27 @@ function App() {
           >
             Music Memory Game
           </Typography>
+          {/* Custom Toggle with Labels */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: 2,
+            }}
+          >
+            <Typography variant="body2" sx={{ mr: 1 }}>
+              2nd Grade List
+            </Typography>
+            <Switch
+              checked={selectedGrade === "3rd-6th"}
+              onChange={handleToggleChange}
+              color="primary"
+            />
+            <Typography variant="body2" sx={{ ml: 1 }}>
+              3rd-6th Grade List
+            </Typography>
+          </Box>
           <Typography
             variant="body1"
             sx={{
@@ -198,11 +235,33 @@ function App() {
             variant="h2"
             sx={{ fontWeight: "bold", textAlign: "center" }}
           >
-            Texas UIL 3rd-6th Grade
+            Texas UIL Music Memory
           </Typography>
           <Typography variant="h3" sx={{ textAlign: "center" }}>
             Music Memory Game
           </Typography>
+          {/* Custom Toggle with Labels */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: 2,
+            }}
+          >
+            <Typography variant="body2" sx={{ mr: 1 }}>
+              2nd Grade List
+            </Typography>
+            <Switch
+              checked={selectedGrade === "3rd-6th"}
+              onChange={handleToggleChange}
+              color="primary"
+            />
+            <Typography variant="body2" sx={{ ml: 1 }}>
+              3rd-6th Grade List
+            </Typography>
+          </Box>
+
           <div
             style={{
               display: "grid",
@@ -254,7 +313,7 @@ function App() {
               alignItems="center"
               justifyContent="center"
             >
-              {MUSIC_MEMORY_PIECES.map((item, i) => (
+              {filteredPieces.map((item, i) => (
                 <GameCard
                   key={i}
                   item={item}
@@ -285,7 +344,7 @@ function App() {
           >
             <Grid item>
               <Tooltip title="About me">
-                <ActionButton title="About me" onClick={handleAboutMeClick}>
+                <ActionButton onClick={handleAboutMeClick}>
                   <WaveIcon />
                 </ActionButton>
               </Tooltip>
@@ -313,10 +372,7 @@ function App() {
           >
             <Grid item>
               <Tooltip title="Buy me a coffee!">
-                <ActionButton
-                  title="Buy me a coffee!"
-                  onClick={handleBuyMeACoffeeClick}
-                >
+                <ActionButton onClick={handleBuyMeACoffeeClick}>
                   <CoffeeIcon />
                 </ActionButton>
               </Tooltip>
@@ -335,7 +391,7 @@ function App() {
           variant="body1"
           sx={{ fontWeight: "bold", textAlign: "center" }}
         >
-          Texas UIL 3rd-6th Grade
+          Texas UIL Music Memory
         </Typography>
         <Typography
           variant="h2"
@@ -343,6 +399,28 @@ function App() {
         >
           Music Memory Game
         </Typography>
+        {/* Custom Toggle with Labels */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            mt: 2,
+          }}
+        >
+          <Typography variant="body2" sx={{ mr: 1 }}>
+            2nd Grade List
+          </Typography>
+          <Switch
+            checked={selectedGrade === "3rd-6th"}
+            onChange={handleToggleChange}
+            color="primary"
+          />
+          <Typography variant="body2" sx={{ ml: 1 }}>
+            3rd-6th Grade List
+          </Typography>
+        </Box>
+
         <Typography
           variant="body1"
           sx={{
@@ -372,48 +450,7 @@ function App() {
           }}
           onClick={handleNoSoundButtonClick}
         >
-          {/* SVG Icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="192"
-            height="192"
-            fill="#ffffff"
-            viewBox="0 0 256 256"
-          >
-            <rect width="256" height="256" fill="none"></rect>
-            <polyline
-              points="176.2 99.7 224.2 99.7 224.2 51.7"
-              fill="none"
-              stroke="#ffffff"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="24"
-            ></polyline>
-            <path
-              d="M65.8,65.8a87.9,87.9,0,0,1,124.4,0l34,33.9"
-              fill="none"
-              stroke="#ffffff"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="24"
-            ></path>
-            <polyline
-              points="79.8 156.3 31.8 156.3 31.8 204.3"
-              fill="none"
-              stroke="#ffffff"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="24"
-            ></polyline>
-            <path
-              d="M190.2,190.2a87.9,87.9,0,0,1-124.4,0l-34-33.9"
-              fill="none"
-              stroke="#ffffff"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="24"
-            ></path>
-          </svg>
+          <RefreshIcon />
         </Container>
 
         {/* Styled Counters */}
@@ -442,7 +479,7 @@ function App() {
             alignItems="center"
             justifyContent="center"
           >
-            {MUSIC_MEMORY_PIECES.map((item, i) => (
+            {filteredPieces.map((item, i) => (
               <GameCard
                 key={i}
                 item={item}
@@ -474,7 +511,7 @@ function App() {
         >
           <Grid item>
             <Tooltip title="About me">
-              <ActionButton title="About me" onClick={handleAboutMeClick}>
+              <ActionButton onClick={handleAboutMeClick}>
                 <WaveIcon />
               </ActionButton>
             </Tooltip>
@@ -502,10 +539,7 @@ function App() {
         >
           <Grid item>
             <Tooltip title="Buy me a coffee!">
-              <ActionButton
-                title="Buy me a coffee!"
-                onClick={handleBuyMeACoffeeClick}
-              >
+              <ActionButton onClick={handleBuyMeACoffeeClick}>
                 <CoffeeIcon />
               </ActionButton>
             </Tooltip>

@@ -1,21 +1,21 @@
 const MUSIC_MEMORY_PIECES = [
-  // { majorWork: '', selection: '', composer: '', youtube: '' },
-  { majorWork: 'The Well-Tempered Clavier, Book 1', selection: 'Prelude No. 1', composer: 'Bach', youtube: '7ZNXBpO-uEo' },
-  { majorWork: 'Symphony No. 1', selection: 'Movement 3', composer: 'Beethoven', youtube: 'x-ILsPFUeAI'},
-  { majorWork: 'Carmen', selection: 'Toreador Song', composer: 'Bizet', youtube: 'g2ULycjl_g0' },
-  { majorWork: '', selection: 'Waltz in A-Flat Major', composer: 'Brahms', youtube: '6Oy0w7eLgRk' },
-  { majorWork: '', selection: "The Prince of Denmark's March", composer: 'Clarke', youtube: 'Va5ox4rh8WE' },
-  { majorWork: '', selection: 'Clair de Lune', composer: 'Debussy', youtube: 'WKU8DJzipW4' },
-  { majorWork: 'Pomp and Circumstance', selection: 'March No. 1', composer: 'Elgar', youtube: 'moL4MkJ-aLk' },
-  { majorWork: '', selection: 'Take the "A" Train', composer: 'Ellington/Strayhorn', youtube: 'r2G1fKYFgVU' },
-  { majorWork: '', selection: 'O la, o che bon eccho (Echo Song)', composer: 'Lassus', youtube: 'Wyo43D6NHII' },
-  { majorWork: 'The Magic Flute', selection: 'Der Vogelfänger bin ich ja', composer: 'Mozart', youtube: 'cK0y0hH1Kyk' },
-  { majorWork: 'Pictures at an Exhibition', selection: 'Promenage', composer: 'Mussorgsky', youtube: '_5r8sa863Ts' },
-  { majorWork: 'Symphony No. 1', selection: 'Movement 4. Finale', composer: 'Price', youtube: '5t5nMxqxTO4' },
-  { majorWork: 'Armenian Dances (Part 1)', selection: 'Gna, Gna (Go, Go)', composer: 'Reed, Alfred', youtube: 'KNrGTScz8jk' },
-  { majorWork: 'The Barber of Seville', selection: 'Zitti, zitti, piano, piano', composer: 'Rossini', youtube: 'jLh8DiXQDGk' },
-  { majorWork: 'Requiem', selection: 'Dies Irae', composer: 'Verdi', youtube: 'CUGMZlvrR4c' },
-  { majorWork: 'The Four Seasons', selection: 'Autumn, Movement 3', composer: 'Vivaldi', youtube: 'PapzGRO9edU' }
+  // { majorWork: '', selection: '', composer: '', youtube: '', grade: '' },
+  { majorWork: 'The Well-Tempered Clavier, Book 1', selection: 'Prelude No. 1', composer: 'Bach', youtube: '7ZNXBpO-uEo', grade: '2' },
+  { majorWork: 'Symphony No. 1', selection: 'Movement 3', composer: 'Beethoven', youtube: 'x-ILsPFUeAI', grade: '2' },
+  { majorWork: 'Carmen', selection: 'Toreador Song', composer: 'Bizet', youtube: 'g2ULycjl_g0', grade: '2' },
+  { majorWork: '', selection: 'Waltz in A-Flat Major', composer: 'Brahms', youtube: '6Oy0w7eLgRk', grade: 'all' },
+  { majorWork: '', selection: "The Prince of Denmark's March", composer: 'Clarke', youtube: 'Va5ox4rh8WE', grade: '2' },
+  { majorWork: '', selection: 'Clair de Lune', composer: 'Debussy', youtube: 'WKU8DJzipW4', grade: 'all' },
+  { majorWork: 'Pomp and Circumstance', selection: 'March No. 1', composer: 'Elgar', youtube: 'moL4MkJ-aLk', grade: 'all' },
+  { majorWork: '', selection: 'Take the "A" Train', composer: 'Ellington/Strayhorn', youtube: 'r2G1fKYFgVU', grade: '2' },
+  { majorWork: '', selection: 'O la, o che bon eccho (Echo Song)', composer: 'Lassus', youtube: 'Wyo43D6NHII', grade: '2' },
+  { majorWork: 'The Magic Flute', selection: 'Der Vogelfänger bin ich ja', composer: 'Mozart', youtube: 'cK0y0hH1Kyk', grade: '2' },
+  { majorWork: 'Pictures at an Exhibition', selection: 'Promenade', composer: 'Mussorgsky', youtube: '_5r8sa863Ts', grade: '2' },
+  { majorWork: 'Symphony No. 1', selection: 'Movement 4. Finale', composer: 'Price', youtube: '5t5nMxqxTO4', grade: 'all' },
+  { majorWork: 'Armenian Dances (Part 1)', selection: 'Gna, Gna (Go, Go)', composer: 'Reed, Alfred', youtube: 'KNrGTScz8jk', grade: '2' },
+  { majorWork: 'The Barber of Seville', selection: 'Zitti, zitti, piano, piano', composer: 'Rossini', youtube: 'jLh8DiXQDGk', grade: 'all' },
+  { majorWork: 'Requiem', selection: 'Dies Irae', composer: 'Verdi', youtube: 'CUGMZlvrR4c', grade: 'all' },
+  { majorWork: 'The Four Seasons', selection: 'Autumn, Movement 3', composer: 'Vivaldi', youtube: 'PapzGRO9edU', grade: '2' }
 ];
 
 // const MUSIC_MEMORY_PIECES_2023 = [
