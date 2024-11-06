@@ -40,7 +40,8 @@ function App() {
   const [incorrectCount, setIncorrectCount] = useState(
     () => parseInt(localStorage.getItem("incorrectCount")) || 0
   );
-  const [resetTrigger, setResetTrigger] = useState(0);
+  // eslint-disable-next-line no-unused-vars
+  const [_resetTrigger, setResetTrigger] = useState(0);
 
   // Toggle function
   const handleToggleChange = () => {
