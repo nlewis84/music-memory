@@ -16,8 +16,27 @@ function overlay(isCorrect) {
 
 let guess = '';
 
-// Select a random item from the array MUSIC_MEMORY_PIECES
-let currentPiece = MUSIC_MEMORY_PIECES[Math.floor(Math.random() * MUSIC_MEMORY_PIECES.length)];
+// Helper function to filter pieces based on the selected grade in localStorage
+function getFilteredPieces() {
+  const selectedGrade = localStorage.getItem('selectedGrade') || '3rd-6th';
+
+  console.log('number of pieces: ', MUSIC_MEMORY_PIECES.filter((piece) =>
+    selectedGrade === '2nd' ? piece.grade === '2' : piece.grade === 'all' || piece.grade === '2'
+  ).length);
+  return MUSIC_MEMORY_PIECES.filter((piece) =>
+    selectedGrade === '2nd' ? piece.grade === '2' : piece.grade === 'all' || piece.grade === '2'
+  );
+}
+
+// Select a random item from the filtered array
+function setNewCurrentPiece() {
+  const filteredPieces = getFilteredPieces();
+  currentPiece = filteredPieces[Math.floor(Math.random() * filteredPieces.length)];
+}
+
+// Initialize currentPiece on load
+let currentPiece = null;
+setNewCurrentPiece();
 
 function correctPiece(item) {
   if (item !== currentPiece) {
