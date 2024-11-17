@@ -20,9 +20,6 @@ let guess = '';
 function getFilteredPieces() {
   const selectedGrade = localStorage.getItem('selectedGrade') || '3rd-6th';
 
-  console.log('number of pieces: ', MUSIC_MEMORY_PIECES.filter((piece) =>
-    selectedGrade === '2nd' ? piece.grade === '2' : piece.grade === 'all' || piece.grade === '2'
-  ).length);
   return MUSIC_MEMORY_PIECES.filter((piece) =>
     selectedGrade === '2nd' ? piece.grade === '2' : piece.grade === 'all' || piece.grade === '2'
   );
