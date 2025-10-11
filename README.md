@@ -30,8 +30,8 @@ See `e2e/README.md` for full documentation.
 
 ## 🎧 Contributing
 
-Bug reports and pull requests are welcome on GitHub [here](https://github.com/nlewis84/music-memory). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/nlewis84/music-memory/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub [here](https://github.com/nlewis84/music-memory). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/nlewis84/music-memory/blob/main/CODE_OF_CONDUCT.md).
 
 ## 🎤 Code of Conduct
 
-Everyone interacting in the Music Memory project's codebase, and issue trackers is expected to follow the [code of conduct](https://github.com/nlewis84/music-memory/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Music Memory project's codebase, and issue trackers is expected to follow the [code of conduct](https://github.com/nlewis84/music-memory/blob/main/CODE_OF_CONDUCT.md).
