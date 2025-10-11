@@ -160,6 +160,8 @@ function App() {
             Trouble? Click this button
           </Typography>
           <Container
+            component="button"
+            aria-label="Reload page"
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -168,6 +170,8 @@ function App() {
               borderRadius: "50%",
               height: 80,
               width: 80,
+              border: "none",
+              cursor: "pointer",
               ":hover": {
                 boxShadow: 10,
               },
@@ -344,11 +348,13 @@ function App() {
             justifyContent="center"
           >
             <Grid item>
-              <Tooltip title="About me">
-                <ActionButton onClick={handleAboutMeClick}>
-                  <WaveIcon />
-                </ActionButton>
-              </Tooltip>
+              <ActionButton
+                title="About me"
+                aria-label="About me"
+                onClick={handleAboutMeClick}
+              >
+                <WaveIcon />
+              </ActionButton>
             </Grid>
           </Grid>
         </Stack>
@@ -372,11 +378,13 @@ function App() {
             justifyContent="center"
           >
             <Grid item>
-              <Tooltip title="Buy me a coffee!">
-                <ActionButton onClick={handleBuyMeACoffeeClick}>
-                  <CoffeeIcon />
-                </ActionButton>
-              </Tooltip>
+              <ActionButton
+                title="Buy me a coffee!"
+                aria-label="Buy me a coffee"
+                onClick={handleBuyMeACoffeeClick}
+              >
+                <CoffeeIcon />
+              </ActionButton>
             </Grid>
           </Grid>
         </Stack>
@@ -436,6 +444,8 @@ function App() {
           No sound or need to reset the game? Click this button
         </Typography>
         <Container
+          component="button"
+          aria-label="Reset game"
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -444,6 +454,8 @@ function App() {
             borderRadius: "50%",
             height: 80,
             width: 80,
+            border: "none",
+            cursor: "pointer",
             ":hover": {
               boxShadow: 10,
             },
@@ -511,11 +523,13 @@ function App() {
           justifyContent="center"
         >
           <Grid item>
-            <Tooltip title="About me">
-              <ActionButton onClick={handleAboutMeClick}>
-                <WaveIcon />
-              </ActionButton>
-            </Tooltip>
+            <ActionButton
+              title="About me"
+              aria-label="About me"
+              onClick={handleAboutMeClick}
+            >
+              <WaveIcon />
+            </ActionButton>
           </Grid>
         </Grid>
       </Stack>
@@ -539,11 +553,13 @@ function App() {
           justifyContent="center"
         >
           <Grid item>
-            <Tooltip title="Buy me a coffee!">
-              <ActionButton onClick={handleBuyMeACoffeeClick}>
-                <CoffeeIcon />
-              </ActionButton>
-            </Tooltip>
+            <ActionButton
+              title="Buy me a coffee!"
+              aria-label="Buy me a coffee"
+              onClick={handleBuyMeACoffeeClick}
+            >
+              <CoffeeIcon />
+            </ActionButton>
           </Grid>
         </Grid>
       </Stack>

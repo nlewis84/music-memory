@@ -1,11 +1,11 @@
 // components/ActionButton.js
-import React from 'react';
-import { Tooltip, Fab } from '@mui/material';
+import React from "react";
+import { Tooltip, Fab } from "@mui/material";
 
-function ActionButton({ title, onClick, children }) {
+function ActionButton({ title, onClick, children, "aria-label": ariaLabel }) {
   return (
     <Tooltip title={title}>
-      <Fab color="primary" onClick={onClick}>
+      <Fab color="primary" onClick={onClick} aria-label={ariaLabel || title}>
         {children}
       </Fab>
     </Tooltip>

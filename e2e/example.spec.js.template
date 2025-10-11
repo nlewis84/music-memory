@@ -1,0 +1,200 @@
+/**
+ * EXAMPLE TEMPLATE FOR NEW PLAYWRIGHT TESTS
+ * 
+ * Copy this file and rename it to create new tests.
+ * Remove the .template extension.
+ * 
+ * Example: cp example.spec.js.template my-new-feature.spec.js
+ */
+
+const { test, expect } = require('@playwright/test');
+
+/**
+ * Test Suite: Describe what this group of tests covers
+ */
+test.describe('Feature Name Tests', () => {
+  /**
+   * beforeEach runs before each test in this describe block
+   * Use this to set up common test preconditions
+   */
+  test.beforeEach(async ({ page }) => {
+    // Navigate to the application
+    await page.goto('/');
+    
+    // Clear localStorage for test isolation
+    await page.evaluate(() => localStorage.clear());
+    
+    // Reload to apply changes
+    await page.reload();
+    
+    // Wait for initial load (adjust timeout as needed)
+    await page.waitForTimeout(2000);
+  });
+
+  /**
+   * Test Case: Should describe what this specific test verifies
+   */
+  test('should perform a basic action', async ({ page }) => {
+    // 1. ARRANGE: Set up test conditions
+    // Example: Set up mock data or initial state
+    
+    // 2. ACT: Perform the action being tested
+    // Example: Click a button
+    const button = page.getByRole('button', { name: /button text/i });
+    await button.click();
+    
+    // 3. ASSERT: Verify the expected outcome
+    await expect(button).toBeVisible();
+  });
+
+  /**
+   * Test Case: Should handle user interaction
+   */
+  test('should handle user input', async ({ page }) => {
+    // Example: Fill a form field
+    const input = page.getByLabel('Input Label');
+    await input.fill('test value');
+    
+    // Verify the input was filled
+    await expect(input).toHaveValue('test value');
+  });
+
+  /**
+   * Test Case: Should verify element visibility
+   */
+  test('should display required elements', async ({ page }) => {
+    // Check multiple elements are visible
+    await expect(page.getByText('Title')).toBeVisible();
+    await expect(page.getByText('Subtitle')).toBeVisible();
+  });
+
+  /**
+   * Test Case: Should handle localStorage operations
+   */
+  test('should persist data in localStorage', async ({ page }) => {
+    // Set data in localStorage
+    await page.evaluate(() => {
+      localStorage.setItem('key', 'value');
+    });
+    
+    // Verify data was set
+    const value = await page.evaluate(() => localStorage.getItem('key'));
+    expect(value).toBe('value');
+  });
+
+  /**
+   * Test Case: Should handle navigation
+   */
+  test('should navigate to external link', async ({ page, context }) => {
+    // Listen for new page to open
+    const pagePromise = context.waitForEvent('page');
+    
+    // Click link that opens new tab
+    const link = page.getByRole('link', { name: /external link/i });
+    await link.click();
+    
+    // Wait for new page
+    const newPage = await pagePromise;
+    await newPage.waitForLoadState();
+    
+    // Verify URL
+    expect(newPage.url()).toContain('example.com');
+    
+    // Clean up
+    await newPage.close();
+  });
+
+  /**
+   * Test Case: Should handle viewport changes
+   */
+  test('should be responsive', async ({ page }) => {
+    // Set mobile viewport
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.waitForTimeout(500);
+    
+    // Verify mobile layout
+    await expect(page.getByText('Title')).toBeVisible();
+    
+    // Set desktop viewport
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.waitForTimeout(500);
+    
+    // Verify desktop layout
+    await expect(page.getByText('Title')).toBeVisible();
+  });
+});
+
+/**
+ * COMMON PLAYWRIGHT SELECTORS
+ * 
+ * By Role:
+ * page.getByRole('button', { name: /text/i })
+ * page.getByRole('link', { name: /text/i })
+ * page.getByRole('textbox', { name: /text/i })
+ * 
+ * By Text:
+ * page.getByText('exact text')
+ * page.getByText(/pattern/i)
+ * 
+ * By Label:
+ * page.getByLabel('label text')
+ * 
+ * By Placeholder:
+ * page.getByPlaceholder('placeholder text')
+ * 
+ * By Test ID:
+ * page.getByTestId('test-id')
+ * 
+ * CSS/XPath:
+ * page.locator('.class-name')
+ * page.locator('#id')
+ * page.locator('div > button')
+ * 
+ * COMMON ASSERTIONS
+ * 
+ * await expect(element).toBeVisible()
+ * await expect(element).toBeHidden()
+ * await expect(element).toBeEnabled()
+ * await expect(element).toBeDisabled()
+ * await expect(element).toBeChecked()
+ * await expect(element).toHaveText('text')
+ * await expect(element).toContainText('text')
+ * await expect(element).toHaveValue('value')
+ * await expect(element).toHaveAttribute('attr', 'value')
+ * await expect(page).toHaveURL(/pattern/)
+ * await expect(page).toHaveTitle(/pattern/)
+ * 
+ * COMMON ACTIONS
+ * 
+ * await element.click()
+ * await element.fill('text')
+ * await element.type('text')
+ * await element.press('Enter')
+ * await element.hover()
+ * await element.tap() // for touch devices
+ * await page.goto('/url')
+ * await page.reload()
+ * await page.goBack()
+ * await page.goForward()
+ * 
+ * WAITING
+ * 
+ * await page.waitForTimeout(1000) // Wait for time
+ * await page.waitForLoadState('networkidle')
+ * await page.waitForSelector('.class')
+ * await element.waitFor({ state: 'visible' })
+ * 
+ * DEBUGGING
+ * 
+ * await page.pause() // Pause execution for debugging
+ * await page.screenshot({ path: 'screenshot.png' })
+ * console.log(await element.textContent())
+ * 
+ * TEST CONFIGURATION
+ * 
+ * test.only('should run only this test', async ({ page }) => {})
+ * test.skip('should skip this test', async ({ page }) => {})
+ * test.slow() // Mark test as slow (3x timeout)
+ * test.setTimeout(60000) // Set custom timeout
+ */
+

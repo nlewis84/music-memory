@@ -16,10 +16,22 @@ This project is a single page application for Texas 3rd Grade students to practi
 - Run `yarn start`
 - Browser should open automatically, but if not navigate to the local url provided by the application
 
+## 🧪 Testing
+
+Comprehensive E2E testing with Playwright (345 tests across 5 browsers).
+
+```bash
+yarn test:e2e          # Run all tests
+yarn test:e2e:ui       # Interactive UI mode
+yarn test:e2e:headed   # Watch tests run
+```
+
+See `e2e/README.md` for full documentation.
+
 ## 🎧 Contributing
 
-Bug reports and pull requests are welcome on GitHub [here](https://github.com/nlewis84/Band-Audition). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/nlewis84/Band-Audition/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub [here](https://github.com/nlewis84/music-memory). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/nlewis84/music-memory/blob/master/CODE_OF_CONDUCT.md).
 
 ## 🎤 Code of Conduct
 
-Everyone interacting in the Band-Audition project's codebases, and issue trackers is expected to follow the [code of conduct](https://github.com/nlewis84/Band-Audition/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Music Memory project's codebase, and issue trackers is expected to follow the [code of conduct](https://github.com/nlewis84/music-memory/blob/master/CODE_OF_CONDUCT.md).
