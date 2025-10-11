@@ -230,8 +230,6 @@ test.describe("Game Card Text Visibility", () => {
         };
       });
 
-      console.log("Card dimensions:", dimensions);
-
       // This should FAIL - content extends beyond card boundaries
       expect(dimensions.isClipped).toBe(false);
       expect(dimensions.clippedElements.length).toBe(0);
@@ -285,8 +283,6 @@ test.describe("Game Card Text Visibility", () => {
 
       return issues;
     });
-
-    console.log("Clipping issues found:", clippingIssues);
 
     // This should FAIL if cards are clipping content
     expect(clippingIssues.length).toBe(0);

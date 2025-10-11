@@ -27,8 +27,13 @@ yarn playwright install --with-deps
 - `mobile-view.spec.js` - Mobile/tablet responsive
 - `youtube-integration.spec.js` - Video player
 - `accessibility.spec.js` - A11y and edge cases
-
-**345 tests** across 5 browsers (Chrome, Firefox, Safari, Mobile Chrome, Mobile Safari)
+- `card-text-visibility.spec.js` - Card content visibility
+- `card-accessibility-improvements.spec.js` - **NEW**: Keyboard navigation, ARIA labels, focus indicators, Poppins font
+- `no-page-reload.spec.js` - **NEW**: Smooth transitions without page reloads, instant game load
+- `overlay-interaction.spec.js` - **NEW**: Clickable overlay dismissal, auto-dismiss, score updates
+- `piece-selection.spec.js` - **NEW**: No repeated pieces, piece cycling logic
+- `cat-gif-updates.spec.js` - **NEW**: Cat API integration, async loading, graceful degradation
+- `typography-improvements.spec.js` - **NEW**: Google Fonts (Poppins/Open Sans), font weights, contrast
 
 ## Test Reliability
 
