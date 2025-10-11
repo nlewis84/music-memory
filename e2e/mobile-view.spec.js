@@ -1,4 +1,10 @@
 const { test, expect } = require("@playwright/test");
+const { MUSIC_MEMORY_PIECES } = require("../src/helpers/musicSetup");
+
+// Calculate expected count for 3rd-6th grade (default view)
+const EXPECTED_3RD_6TH_COUNT = MUSIC_MEMORY_PIECES.filter(
+  (piece) => piece.grade === "2" || piece.grade === "all"
+).length;
 
 test.describe("Mobile View Tests", () => {
   test.beforeEach(async ({ page }) => {
@@ -135,10 +141,10 @@ test.describe("Tablet View Tests", () => {
   });
 
   test("should show all game cards on tablet", async ({ page }) => {
-    // Count all game cards (should have all 17 pieces for 3rd-6th grade)
+    // Count all game cards (should match data source for 3rd-6th grade)
     const cards = page.locator(".MuiCard-root");
     const count = await cards.count();
-    expect(count).toBeGreaterThanOrEqual(15);
+    expect(count).toBe(EXPECTED_3RD_6TH_COUNT);
   });
 
   test("should have touch-friendly buttons on tablet", async ({ page }) => {

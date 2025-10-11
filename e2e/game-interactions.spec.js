@@ -1,4 +1,13 @@
 const { test, expect } = require("@playwright/test");
+const { MUSIC_MEMORY_PIECES } = require("../src/helpers/musicSetup");
+
+// Calculate expected counts from actual data
+const EXPECTED_3RD_6TH_COUNT = MUSIC_MEMORY_PIECES.filter(
+  (piece) => piece.grade === "2" || piece.grade === "all"
+).length;
+const EXPECTED_2ND_COUNT = MUSIC_MEMORY_PIECES.filter(
+  (piece) => piece.grade === "2"
+).length;
 
 test.describe("Game Card Interactions and Scoring", () => {
   test.beforeEach(async ({ page }) => {
@@ -138,12 +147,12 @@ test.describe("Game Card Interactions and Scoring", () => {
     });
 
     // Count all game cards for 3rd-6th grade (default)
-    // Should include all 'grade 2' + 'all' pieces (17 total)
+    // Should include all 'grade 2' + 'all' pieces
     const cards3to6 = page.locator(".MuiCard-root");
     const count3to6 = await cards3to6.count();
 
-    // Should have all 17 cards (grade '2' + 'all')
-    expect(count3to6).toBeGreaterThanOrEqual(15);
+    // Should match expected count from data source
+    expect(count3to6).toBe(EXPECTED_3RD_6TH_COUNT);
 
     // Toggle to 2nd grade
     const toggle = page.locator('input[type="checkbox"]').first();
@@ -151,12 +160,12 @@ test.describe("Game Card Interactions and Scoring", () => {
     await page.waitForTimeout(1000);
 
     // Count all game cards for 2nd grade
-    // Should include only 'grade 2' pieces (11 total)
+    // Should include only 'grade 2' pieces
     const cards2nd = page.locator(".MuiCard-root");
     const count2nd = await cards2nd.count();
 
-    // Should have 11 cards (grade '2' only) - fewer than 3rd-6th grade
-    expect(count2nd).toBeGreaterThanOrEqual(10);
+    // Should match expected count from data source and be fewer than 3rd-6th
+    expect(count2nd).toBe(EXPECTED_2ND_COUNT);
     expect(count2nd).toBeLessThan(count3to6);
   });
 });

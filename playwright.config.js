@@ -12,9 +12,9 @@ module.exports = defineConfig({
   /* Retry flaky webkit tests locally and on CI */
   retries: 1,
   /* Reduce workers to avoid resource contention */
-  workers: 4,
+  workers: 32,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: "dot",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
