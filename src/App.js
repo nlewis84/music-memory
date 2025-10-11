@@ -147,40 +147,42 @@ function App() {
               3rd-6th Grade List
             </Typography>
           </Box>
-          <Typography
-            variant="body1"
+          {/* Compact control bar - loading state */}
+          <Box
             sx={{
-              fontSize: "h6.fontSize",
-              fontWeight: "bold",
-              textAlign: "center",
-              color: "text.secondary",
               mt: 2,
-            }}
-          >
-            Trouble? Click this button
-          </Typography>
-          <Container
-            component="button"
-            aria-label="Reload page"
-            sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              backgroundColor: "primary.dark",
-              borderRadius: "50%",
-              height: 80,
-              width: 80,
-              border: "none",
-              cursor: "pointer",
-              ":hover": {
-                boxShadow: 10,
-              },
-              ":active": { boxShadow: 0 },
             }}
-            onClick={handleReload}
           >
-            <RefreshIcon />
-          </Container>
+            <Tooltip title="Trouble loading? Click to reload">
+              <Box
+                component="button"
+                aria-label="Reload page"
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "primary.dark",
+                  borderRadius: "50%",
+                  height: 56,
+                  width: 56,
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                  ":hover": {
+                    boxShadow: 10,
+                    transform: "scale(1.05)",
+                  },
+                  ":active": { boxShadow: 0, transform: "scale(0.95)" },
+                }}
+                onClick={handleReload}
+              >
+                <RefreshIcon />
+              </Box>
+            </Tooltip>
+          </Box>
           <Container>
             <Grid
               container
@@ -395,100 +397,152 @@ function App() {
   return (
     <>
       <OverlayComponent imageUrl={item[0]?.url} text="placeholder" />
-      <Container sx={{ p: 5 }}>
+      <Container sx={{ py: 1, px: 3 }}>
         <Typography
           variant="body1"
-          sx={{ fontWeight: "bold", textAlign: "center" }}
+          sx={{ fontWeight: "bold", textAlign: "center", fontSize: "0.875rem" }}
         >
           Texas UIL Music Memory
         </Typography>
         <Typography
           variant="h2"
-          sx={{ fontWeight: "bold", textAlign: "center" }}
+          sx={{ fontWeight: "bold", textAlign: "center", mb: 1 }}
         >
           Music Memory Game
         </Typography>
-        {/* Custom Toggle with Labels */}
+        {/* Stacked control bar: Toggle above Scores */}
         <Box
           sx={{
+            mt: 0.5,
+            mb: 0.5,
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
-            mt: 2,
+            gap: 0.5,
           }}
         >
-          <Typography variant="body2" sx={{ mr: 1 }}>
-            2nd Grade List
-          </Typography>
-          <Switch
-            checked={selectedGrade === "3rd-6th"}
-            onChange={handleToggleChange}
-            color="primary"
-          />
-          <Typography variant="body2" sx={{ ml: 1 }}>
-            3rd-6th Grade List
-          </Typography>
+          {/* Grade Toggle - Centered Top with equal-width labels */}
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "70px auto 70px",
+              alignItems: "center",
+              justifyItems: "center",
+              gap: 0.5,
+              mx: "auto",
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: "0.875rem",
+                fontWeight: selectedGrade === "2nd" ? "600" : "400",
+                justifySelf: "end",
+              }}
+            >
+              2nd
+            </Typography>
+            <Switch
+              checked={selectedGrade === "3rd-6th"}
+              onChange={handleToggleChange}
+              color="primary"
+              size="small"
+            />
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: "0.875rem",
+                fontWeight: selectedGrade === "3rd-6th" ? "600" : "400",
+                justifySelf: "start",
+              }}
+            >
+              3rd-6th
+            </Typography>
+          </Box>
+
+          {/* Score Counters - Centered Below */}
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 2,
+            }}
+          >
+            {/* Correct Counter */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.75,
+                backgroundColor: "rgba(212, 237, 218, 0.4)",
+                borderRadius: "20px",
+                px: 1.25,
+                py: 0.5,
+                border: "1px solid rgba(195, 230, 203, 0.6)",
+              }}
+            >
+              <Box
+                sx={{
+                  fontSize: "1.1rem",
+                  fontWeight: "bold",
+                  color: "#155724",
+                }}
+              >
+                ✓
+              </Box>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#155724",
+                  fontWeight: "600",
+                  fontSize: "0.875rem",
+                }}
+              >
+                {correctCount}
+              </Typography>
+            </Box>
+
+            {/* Incorrect Counter */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.75,
+                backgroundColor: "rgba(248, 215, 218, 0.4)",
+                borderRadius: "20px",
+                px: 1.25,
+                py: 0.5,
+                border: "1px solid rgba(245, 198, 203, 0.6)",
+              }}
+            >
+              <Box
+                sx={{
+                  fontSize: "1.1rem",
+                  fontWeight: "bold",
+                  color: "#721c24",
+                }}
+              >
+                ✗
+              </Box>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#721c24",
+                  fontWeight: "600",
+                  fontSize: "0.875rem",
+                }}
+              >
+                {incorrectCount}
+              </Typography>
+            </Box>
+          </Box>
         </Box>
 
-        <Typography
-          variant="body1"
-          sx={{
-            fontSize: "h6.fontSize",
-            fontWeight: "bold",
-            textAlign: "center",
-            color: "text.secondary",
-            mt: 2,
-            mb: 2,
-          }}
-        >
-          No sound or need to reset the game? Click this button
-        </Typography>
-        <Container
-          component="button"
-          aria-label="Reset game"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "primary.dark",
-            borderRadius: "50%",
-            height: 80,
-            width: 80,
-            border: "none",
-            cursor: "pointer",
-            ":hover": {
-              boxShadow: 10,
-            },
-            ":active": { boxShadow: 0 },
-          }}
-          onClick={handleNoSoundButtonClick}
-        >
-          <RefreshIcon />
-        </Container>
-
-        {/* Styled Counters */}
-        <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 4 }}>
-          <ScoreCounter
-            label="Correct Answers"
-            count={correctCount}
-            backgroundColor="#d4edda"
-            textColor="#155724"
-            borderColor="#c3e6cb"
-          />
-          <ScoreCounter
-            label="Incorrect Answers"
-            count={incorrectCount}
-            backgroundColor="#f8d7da"
-            textColor="#721c24"
-            borderColor="#f5c6cb"
-          />
-        </Box>
-
-        <Container>
+        <Container sx={{ maxWidth: "100% !important", px: 3 }}>
           <Grid
             container
-            sx={{ gap: 2, mt: 5 }}
-            spacing={2}
+            sx={{ gap: 1.5, mt: 1, ml: 0 }}
             alignItems="center"
             justifyContent="center"
           >
@@ -503,6 +557,37 @@ function App() {
           {StyledYouTube(currentPiece.youtube, false)}
         </Container>
       </Container>
+      {/* Fixed buttons - Top Left: Reset, Bottom Left: About */}
+      <Stack
+        sx={{
+          position: "fixed",
+          width: "100px",
+          top: 0,
+          left: 0,
+          m: 2,
+          zIndex: 3,
+        }}
+        direction="column"
+        spacing={2}
+      >
+        <Grid
+          container
+          sx={{ gap: 2 }}
+          spacing={2}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Grid item>
+            <ActionButton
+              title="No sound or need to reset?"
+              aria-label="Reset game"
+              onClick={handleNoSoundButtonClick}
+            >
+              <RefreshIcon />
+            </ActionButton>
+          </Grid>
+        </Grid>
+      </Stack>
       <Stack
         sx={{
           position: "fixed",
@@ -517,7 +602,7 @@ function App() {
       >
         <Grid
           container
-          sx={{ gap: 2, mt: 5 }}
+          sx={{ gap: 2 }}
           spacing={2}
           alignItems="center"
           justifyContent="center"

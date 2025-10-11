@@ -112,34 +112,34 @@ const MUSIC_MEMORY_PIECES = [
     youtube: "SDLoRRIzsz0",
     grade: "all",
   },
-  {
-    majorWork: 'Symphony No. 5, "Fate"',
-    selection: "Movement 4",
-    composer: "Beethoven",
-    youtube: "0B7t1Qai42I",
-    grade: "all",
-  },
-  {
-    majorWork: "Prince Igor",
-    selection: "Polovtsian Dances",
-    composer: "Borodin",
-    youtube: "9gn-kJ_IOJU",
-    grade: "all",
-  },
-  {
-    majorWork: "The Flying Dutchman",
-    selection: "Overture",
-    composer: "Wagner",
-    youtube: "HqezCR_XzaI",
-    grade: "all",
-  },
-  {
-    majorWork: "Prairie Light",
-    selection: "Starlight Night",
-    composer: "Welcher",
-    youtube: "hEOjMfBYhCY",
-    grade: "all",
-  },
+  // {
+  //   majorWork: 'Symphony No. 5, "Fate"',
+  //   selection: "Movement 4",
+  //   composer: "Beethoven",
+  //   youtube: "0B7t1Qai42I",
+  //   grade: "all",
+  // },
+  // {
+  //   majorWork: "Prince Igor",
+  //   selection: "Polovtsian Dances",
+  //   composer: "Borodin",
+  //   youtube: "9gn-kJ_IOJU",
+  //   grade: "all",
+  // },
+  // {
+  //   majorWork: "The Flying Dutchman",
+  //   selection: "Overture",
+  //   composer: "Wagner",
+  //   youtube: "HqezCR_XzaI",
+  //   grade: "all",
+  // },
+  // {
+  //   majorWork: "Prairie Light",
+  //   selection: "Starlight Night",
+  //   composer: "Welcher",
+  //   youtube: "hEOjMfBYhCY",
+  //   grade: "all",
+  // },
 ];
 
 // const MUSIC_MEMORY_PIECES_2024 = [
