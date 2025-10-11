@@ -6,7 +6,7 @@ const OverlayComponent = ({ imageUrl, text }) => (
   <Paper
     id="overlay"
     className="overlay"
-    sx={{ display: "none", backgroundColor: "#000000ee" }}
+    sx={{ display: "none", backgroundColor: "#000000ee", cursor: "pointer" }}
     component={Stack}
     direction="column"
     justifyContent="center"
@@ -36,6 +36,20 @@ const OverlayComponent = ({ imageUrl, text }) => (
         id="reply"
       >
         {text}
+      </Typography>
+      <Typography
+        variant="body2"
+        sx={{
+          fontFamily: '"Open Sans", sans-serif',
+          fontSize: "0.9rem",
+          fontWeight: 400,
+          textAlign: "center",
+          color: "rgba(255, 255, 255, 0.7)",
+          fontStyle: "italic",
+          mt: 2,
+        }}
+      >
+        Click anywhere to continue
       </Typography>
     </Box>
   </Paper>

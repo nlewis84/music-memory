@@ -2,9 +2,28 @@ import ReactGA from "react-ga";
 import MUSIC_MEMORY_PIECES from "./musicSetup";
 
 let onPieceChange = null; // Callback to notify React of changes
+let overlayTimeout = null; // Store timeout ID for dismissal
 
 export function setOnPieceChange(callback) {
   onPieceChange = callback;
+}
+
+function dismissOverlay() {
+  const overlaySelector = document.getElementById("overlay");
+  if (overlaySelector) {
+    overlaySelector.style.display = "none";
+  }
+  guess = "";
+
+  // Clear any existing timeout
+  if (overlayTimeout) {
+    clearTimeout(overlayTimeout);
+    overlayTimeout = null;
+  }
+
+  // Trigger new piece
+  setNewCurrentPiece();
+  if (onPieceChange) onPieceChange();
 }
 
 function overlay(isCorrect) {
@@ -14,10 +33,19 @@ function overlay(isCorrect) {
   isCorrect ? (reply.style.color = "#4ade80") : (reply.style.color = "#fb923c");
   let overlaySelector = document.getElementById("overlay");
   overlaySelector.style.display = "flex";
+  overlaySelector.style.cursor = "pointer";
 
-  setTimeout(() => {
-    overlaySelector.style.display = "none";
-    guess = "";
+  // Clear any existing timeout
+  if (overlayTimeout) {
+    clearTimeout(overlayTimeout);
+  }
+
+  // Set up click handler for manual dismissal
+  overlaySelector.onclick = dismissOverlay;
+
+  // Auto-dismiss after 5 seconds
+  overlayTimeout = setTimeout(() => {
+    dismissOverlay();
   }, 5000);
 }
 
@@ -34,11 +62,24 @@ function getFilteredPieces() {
   );
 }
 
-// Select a random item from the filtered array
+// Select a random item from the filtered array (excluding current piece)
 function setNewCurrentPiece() {
   const filteredPieces = getFilteredPieces();
+
+  // If only one piece available, keep it (edge case)
+  if (filteredPieces.length <= 1) {
+    currentPiece = filteredPieces[0];
+    return;
+  }
+
+  // Filter out the current piece to avoid repetition
+  const availablePieces = filteredPieces.filter(
+    (piece) => piece !== currentPiece
+  );
+
+  // Select random piece from remaining options
   currentPiece =
-    filteredPieces[Math.floor(Math.random() * filteredPieces.length)];
+    availablePieces[Math.floor(Math.random() * availablePieces.length)];
 }
 
 // Initialize currentPiece on load
@@ -64,12 +105,6 @@ function correctPiece(item) {
             ${majorWork}${selection}${composer}`;
     overlay(false);
 
-    setTimeout(function () {
-      guess = "";
-      setNewCurrentPiece(); // Pick a new piece without reloading
-      if (onPieceChange) onPieceChange(); // Notify React to re-render
-    }, 5000);
-
     return false; // Return false for an incorrect answer
   }
 
@@ -79,12 +114,6 @@ function correctPiece(item) {
   });
   guess = `<div style="font-family: 'Poppins', sans-serif;">GREAT JOB!</div>`;
   overlay(true);
-
-  setTimeout(function () {
-    guess = "";
-    setNewCurrentPiece(); // Pick a new piece without reloading
-    if (onPieceChange) onPieceChange(); // Notify React to re-render
-  }, 5000);
 
   return true; // Return true for a correct answer
 }
