@@ -26,9 +26,12 @@ const OverlayComponent = ({ imageUrl, text }) => (
       <Typography
         variant="h4"
         sx={{
-          fontSize: "h4.fontSize",
-          fontWeight: "bold",
+          fontFamily: '"Poppins", sans-serif',
+          fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+          fontWeight: 700,
           textAlign: "center",
+          letterSpacing: "-0.02em",
+          textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
         }}
         id="reply"
       >

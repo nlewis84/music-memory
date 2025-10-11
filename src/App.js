@@ -1,20 +1,13 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactGA from "react-ga";
-import {
-  Box,
-  Card,
-  CardContent,
-  Container,
-  Grid,
-  Skeleton,
-  Stack,
-  Switch,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Grid, Stack, Switch, Typography } from "@mui/material";
 import { isMobile } from "react-device-detect";
-import { currentPiece, correctPiece } from "./helpers/helperFunctions";
+import {
+  currentPiece,
+  correctPiece,
+  setOnPieceChange,
+} from "./helpers/helperFunctions";
 import MUSIC_MEMORY_PIECES from "./helpers/musicSetup";
 import StyledYouTube from "./helpers/styledYouTube";
 import GameCard from "./components/GameCard";
@@ -27,10 +20,6 @@ import ScoreCounter from "./components/ScoreCounter";
 import useFetchCatImage from "./hooks/useFetchCatImage";
 
 function App() {
-  const { item, dataIsLoaded } = useFetchCatImage(
-    process.env.REACT_APP_CAT_API_KEY
-  );
-
   const [selectedGrade, setSelectedGrade] = useState(
     () => localStorage.getItem("selectedGrade") || "3rd-6th"
   );
@@ -40,8 +29,20 @@ function App() {
   const [incorrectCount, setIncorrectCount] = useState(
     () => parseInt(localStorage.getItem("incorrectCount")) || 0
   );
-  // eslint-disable-next-line no-unused-vars
   const [_resetTrigger, setResetTrigger] = useState(0);
+
+  // Fetch cat with trigger to get new cat each round
+  const { item } = useFetchCatImage(
+    process.env.REACT_APP_CAT_API_KEY,
+    _resetTrigger
+  );
+
+  // Set up callback for piece changes to trigger re-render
+  useEffect(() => {
+    setOnPieceChange(() => {
+      setResetTrigger((prev) => prev + 1);
+    });
+  }, []);
 
   // Toggle function
   const handleToggleChange = () => {
@@ -105,133 +106,8 @@ function App() {
     resetCounts();
   };
 
-  const handleReload = () => {
-    setResetTrigger((prev) => prev + 1); // Trigger re-render
-  };
-
-  if (!dataIsLoaded || !currentPiece?.youtube) {
-    return (
-      <>
-        <OverlayComponent imageUrl={undefined} text="placeholder" />
-        <Container sx={{ p: 5 }}>
-          <Typography
-            variant="body1"
-            sx={{ fontWeight: "bold", textAlign: "center" }}
-          >
-            Texas UIL Music Memory
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{ fontWeight: "bold", textAlign: "center" }}
-          >
-            Music Memory Game
-          </Typography>
-          {/* Custom Toggle with Labels */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              mt: 2,
-            }}
-          >
-            <Typography variant="body2" sx={{ mr: 1 }}>
-              2nd Grade List
-            </Typography>
-            <Switch
-              checked={selectedGrade === "3rd-6th"}
-              onChange={handleToggleChange}
-              color="primary"
-            />
-            <Typography variant="body2" sx={{ ml: 1 }}>
-              3rd-6th Grade List
-            </Typography>
-          </Box>
-          {/* Compact control bar - loading state */}
-          <Box
-            sx={{
-              mt: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Tooltip title="Trouble loading? Click to reload">
-              <Box
-                component="button"
-                aria-label="Reload page"
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "primary.dark",
-                  borderRadius: "50%",
-                  height: 56,
-                  width: 56,
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                  ":hover": {
-                    boxShadow: 10,
-                    transform: "scale(1.05)",
-                  },
-                  ":active": { boxShadow: 0, transform: "scale(0.95)" },
-                }}
-                onClick={handleReload}
-              >
-                <RefreshIcon />
-              </Box>
-            </Tooltip>
-          </Box>
-          <Container>
-            <Grid
-              container
-              sx={{ gap: 2, mt: 5 }}
-              spacing={2}
-              alignItems="center"
-              justifyContent="center"
-            >
-              {new Array(16).fill().map((_, i) => (
-                <Card
-                  key={i}
-                  sx={{
-                    backgroundColor: "primary.dark",
-                    borderRadius: 2,
-                    height: 180,
-                    width: 180,
-                    ":hover": {
-                      boxShadow: 10,
-                    },
-                  }}
-                  variant="outlined"
-                  style={{ textDecoration: "none" }}
-                >
-                  <CardContent>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: "text.tertiary",
-                        fontWeight: "bold",
-                        textAlign: "center",
-                      }}
-                    >
-                      <Skeleton animation="wave" />
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{ color: "text.disabled", textAlign: "center" }}
-                    >
-                      <Skeleton animation="wave" />
-                    </Typography>
-                  </CardContent>
-                </Card>
-              ))}
-            </Grid>
-          </Container>
-        </Container>
-      </>
-    );
-  }
+  // Removed blocking loading state - cat images load in background
+  // Game should be instantly playable with local data
 
   if (isMobile) {
     return (
