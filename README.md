@@ -4,7 +4,7 @@ This project is a single page application for Texas 3rd Grade students to practi
 
 ## 🎶 Website
 
-- Give this app a try [here](https://music-memory.herokuapp.com/)
+- Give this app a try [here](https://texasmusicmemory.com/)
 
 ## 🎵 Installation
 
