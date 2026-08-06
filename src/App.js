@@ -17,6 +17,7 @@ import WaveIcon from "./components/WaveIcon";
 import CoffeeIcon from "./components/CoffeeIcon";
 import RefreshIcon from "./components/RefreshIcon";
 import ScoreCounter from "./components/ScoreCounter";
+import AdSlot from "./components/AdSlot";
 import useFetchCatImage from "./hooks/useFetchCatImage";
 
 function App() {
@@ -188,6 +189,8 @@ function App() {
             />
           </Box>
 
+          <AdSlot placement="top" />
+
           <Container>
             <Grid
               container
@@ -205,6 +208,7 @@ function App() {
               ))}
             </Grid>
           </Container>
+          <AdSlot placement="bottom" />
         </Container>
         <Stack
           sx={{
@@ -415,6 +419,8 @@ function App() {
           </Box>
         </Box>
 
+        <AdSlot placement="top" />
+
         <Container sx={{ maxWidth: "100% !important", px: 3 }}>
           <Grid
             container
@@ -431,6 +437,7 @@ function App() {
             ))}
           </Grid>
           {StyledYouTube(currentPiece.youtube, false)}
+          <AdSlot placement="bottom" />
         </Container>
       </Container>
       {/* Fixed buttons - Top Left: Reset, Bottom Left: About */}

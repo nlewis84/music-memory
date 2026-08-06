@@ -6,6 +6,20 @@ This project is a single page application for Texas 3rd Grade students to practi
 
 - Give this app a try [here](https://texasmusicmemory.com/)
 
+## AdSense
+
+Site connection uses `public/ads.txt`, a `google-adsense-account` meta tag, and the
+`adsbygoogle.js` script in `public/index.html`.
+
+Ad units render only when `REACT_APP_ADSENSE_ENABLED=true` and slot ids are set:
+
+| Variable | Purpose |
+|---|---|
+| `REACT_APP_ADSENSE_CLIENT` | Publisher id (`ca-pub-…`); falls back to the hardcoded id |
+| `REACT_APP_ADSENSE_ENABLED` | Gates visible ad units |
+| `REACT_APP_ADSENSE_SLOT_TOP` | Slot above the piece cards |
+| `REACT_APP_ADSENSE_SLOT_BOTTOM` | Slot below the piece cards |
+
 ## 🎵 Installation
 
 - Download or clone this project
